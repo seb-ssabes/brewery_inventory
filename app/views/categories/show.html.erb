@@ -1,2 +1,25 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="header">
+  <h1><%= @category.name %></h1>
+  <%= link_to "X", root_path %>
+</div>
+<div class="items">
+  <div class="item">
+    <% if @items.any? %>
+      <ul>
+        <% @items.each do |item| %>
+          <li>
+            <div class="item-card">
+              <p>Name: <%= item.name %></p>
+              <p>Quantity: <%= item.quantity %></p>
+              <p>Price: <%= item.price %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <div class="empty-category">
+        <p>No <%= @category.name %> has been added yet.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
