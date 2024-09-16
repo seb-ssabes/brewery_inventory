@@ -9,7 +9,7 @@
         <% @items.each do |item| %>
           <li>
             <div class="item-card">
-              <p>Name: <%= item.name %></p>
+              <p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
               <p>Quantity: <%= item.quantity %></p>
               <p>Price: <%= item.price %></p>
             </div>

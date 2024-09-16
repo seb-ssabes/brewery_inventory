@@ -1,2 +1,7 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<% if @item.category.name == 'Hops' %>
+  <%= render 'hop_show', item: @item %>
+<% elsif @item.category.name == 'Malts' %>
+  <%= render 'malt_show', item: @item %>
+<% elsif @item.category.name == 'Yeasts' %>
+  <%= render 'yeast_show', item: @item %>
+<% end %>

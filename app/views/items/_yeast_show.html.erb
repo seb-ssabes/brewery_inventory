@@ -1,0 +1,17 @@
+<div class="header">
+  <h1><%= @item.name %></h1>
+  <%= link_to "X", category_path(3) %>
+</div>
+<div class="item">
+  <div class="item-show-card">
+    <p>Name: <%= @item.name %></p>
+    <p>Quantity: <%= @item.quantity %></p>
+    <p>Price: <%= @item.price %></p>
+    <p>Origin: <%= @item.origin %></p>
+    <p>Colour: <%= @item.color %></p>
+    <p>Type: <%= @item.item_type %></p>
+    <p>Expiring date: <%= @item.date %></p>
+    <p>Attenuation <%= @item.attenuation %></p>
+    <p>Notes <%= @item.notes %></p>
+  </div>
+</div>
