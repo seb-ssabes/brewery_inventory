@@ -1,0 +1,57 @@
+<h1>New Yeast</h1>
+
+<%= form_with(model: [@category, @item], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: 'Enter hop name' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, step: 0.1, placeholder: 'Enter quantity in grams' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.select :unit, options_for_select([['grams', 'g'], ['milliliters', 'ml'], ['units', 'units']]), prompt: 'Select unit' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.01, placeholder: 'Enter price' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :origin %>
+    <%= form.text_field :origin, placeholder: 'Enter origin country' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alpha %>
+    <%= form.number_field :alpha, step: 0.1, placeholder: 'Enter alpha percentage' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_type, 'Type' %>
+    <%= form.select :item_type, options_for_select(['Pellet', 'Whole']), prompt: 'Select type' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date, value: Date.today %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supplier %>
+    <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Hop', class: 'btn btn-primary' %>
+  </div>
+<% end %>

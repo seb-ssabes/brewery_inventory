@@ -11,13 +11,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Category.items.build
+    @item = @category.items.build
   end
 
   def create
     @item = @category.item.build(item_params)
     if @item.save
-      redirect_to category_items_path(@category), notice: "Item created"
+      redirect_to category_path(@category), notice: "Item created"
     else
       render :new
     end

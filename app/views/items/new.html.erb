@@ -1,2 +1,7 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<% if @item.category.name == 'Hops' %>
+  <%= render 'new_hop', item: @item %>
+<% elsif @item.category.name == 'Malts' %>
+  <%= render 'new_malt', item: @item %>
+<% elsif @item.category.name == 'Yeasts' %>
+  <%= render 'new_yeast', item: @item %>
+<% end %>

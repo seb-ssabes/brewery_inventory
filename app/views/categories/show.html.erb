@@ -23,3 +23,8 @@
     <% end %>
   </div>
 </div>
+
+<div class="add-item-button">
+    <%= link_to "Add #{@category.name}", new_category_item_path(@category), class: "button" %>
+</div>
+
