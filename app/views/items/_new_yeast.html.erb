@@ -1,4 +1,7 @@
-<h1>New Yeast</h1>
+<div class="header">
+  <h1>New Yeast</h1>
+  <%= link_to "X", category_path(3) %>
+</div>
 
 <%= form_with(model: [@category, @item], local: true) do |form| %>
   <div class="field">
@@ -13,7 +16,7 @@
 
   <div class="field">
     <%= form.label :unit %>
-    <%= form.select :unit, options_for_select([['grams', 'g'], ['milliliters', 'ml'], ['units', 'units']]), prompt: 'Select unit' %>
+    <%= form.select :unit, options_for_select(['g', 'ml', 'sachet']), prompt: 'Select unit' %>
   </div>
 
   <div class="field">
@@ -27,17 +30,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :alpha %>
-    <%= form.number_field :alpha, step: 0.1, placeholder: 'Enter alpha percentage' %>
+    <%= form.label :supplier %>
+    <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attenuation %>
+    <%= form.number_field :attenuation, step: 0.01, placeholder: 'Enter Attenuation' %>
   </div>
 
   <div class="field">
     <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Pellet', 'Whole']), prompt: 'Select type' %>
+    <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other']), prompt: 'Select type' %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :form, 'Form' %>
+    <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry']), prompt: 'Select Form' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date, 'Expiring date' %>
     <%= form.date_field :date, value: Date.today %>
   </div>
 
@@ -46,12 +59,7 @@
     <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
   </div>
 
-  <div class="field">
-    <%= form.label :supplier %>
-    <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
-  </div>
-
   <div class="actions">
-    <%= form.submit 'Create Hop', class: 'btn btn-primary' %>
+    <%= form.submit 'Create Yeast', class: 'btn btn-primary' %>
   </div>
 <% end %>

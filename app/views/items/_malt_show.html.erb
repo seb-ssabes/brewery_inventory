@@ -5,13 +5,18 @@
 <div class="item">
   <div class="item-show-card">
     <p>Name: <%= @item.name %></p>
-    <p>Quantity: <%= @item.quantity %></p>
-    <p>Price: <%= @item.price %></p>
+    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %>g</p>
+    <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.') %></p>
     <p>Origin: <%= @item.origin %></p>
+    <p>Supplier: <%= @item.supplier %></p>
     <p>Colour: <%= @item.color %></p>
     <p>Type: <%= @item.item_type %></p>
+    <p>Category: <%= @item.item_category %></p>
     <p>Expiring date: <%= @item.date %></p>
-    <p>Potential <%= @item.potential %></p>
-    <p>Yield <%= @item.yield %></p>
+    <p>Potential: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.potential.to_i, delimiter: '.') %> PPG</p>
+    <p>Yield: <%= @item.yield.to_i %>%</p>
+    <p>Notes: <%= @item.notes %></p>
   </div>
 </div>
+<%= button_to "Delete Malt", category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Edit Malt", edit_category_item_path(@category, @item) %>

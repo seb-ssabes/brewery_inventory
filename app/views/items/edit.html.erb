@@ -1,2 +1,7 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<% if @item.category.name == 'Hops' %>
+  <%= render 'edit_hop', item: @item %>
+<% elsif @item.category.name == 'Malts' %>
+  <%= render 'edit_malt', item: @item %>
+<% elsif @item.category.name == 'Yeasts' %>
+  <%= render 'edit_yeast', item: @item %>
+<% end %>

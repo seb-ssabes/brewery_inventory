@@ -1,7 +1,5 @@
-<div class="header">
-  <h1>New Hop</h1>
-  <%= link_to "X", category_path(1) %>
-</div>
+<h1>Edit Hop</h1>
+<%= link_to "X", category_item_path(@category, @item) %>
 
 <%= form_with(model: [@category, @item], local: true) do |form| %>
   <div class="field">
@@ -11,12 +9,12 @@
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, step: 0.1, placeholder: 'Enter quantity in grams' %>
+    <%= form.number_field :quantity, value: @item.quantity.to_i, placeholder: 'Enter quantity in grams' %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01, placeholder: 'Price per 100g' %>
+    <%= form.number_field :price, value: @item.price.to_i, placeholder: 'Price per 100g' %>
   </div>
 
   <div class="field">
@@ -31,7 +29,7 @@
 
   <div class="field">
     <%= form.label :alpha %>
-    <%= form.number_field :alpha, step: 0.1, placeholder: 'Enter alpha percentage' %>
+    <%= form.number_field :alpha, step: 'any', value: (@item.alpha % 1 == 0 ? @item.alpha.to_i : @item.alpha), placeholder: 'Enter alpha percentage' %>
   </div>
 
   <div class="field">
@@ -49,7 +47,8 @@
     <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
   </div>
 
+
   <div class="actions">
-    <%= form.submit 'Create Hop', class: 'btn btn-primary' %>
+    <%= form.submit 'Update Hop', class: 'btn btn-primary' %>
   </div>
 <% end %>

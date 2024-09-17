@@ -1,7 +1,5 @@
-<div class="header">
-  <h1>New Hop</h1>
-  <%= link_to "X", category_path(1) %>
-</div>
+<h1>Edit Yeast</h1>
+<%= link_to "X", category_item_path(@category, @item) %>
 
 <%= form_with(model: [@category, @item], local: true) do |form| %>
   <div class="field">
@@ -15,8 +13,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :unit %>
+    <%= form.select :unit, options_for_select(['g', 'ml', 'sachet']), prompt: 'Select unit' %>
+  </div>
+
+  <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01, placeholder: 'Price per 100g' %>
+    <%= form.number_field :price, step: 0.01, placeholder: 'Enter price' %>
   </div>
 
   <div class="field">
@@ -30,13 +33,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :alpha %>
-    <%= form.number_field :alpha, step: 0.1, placeholder: 'Enter alpha percentage' %>
+    <%= form.label :attenuation %>
+    <%= form.number_field :attenuation, step: 0.01, placeholder: 'Enter Attenuation' %>
   </div>
 
   <div class="field">
     <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract']), prompt: 'Select type' %>
+    <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other']), prompt: 'Select type' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :form, 'Form' %>
+    <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry']), prompt: 'Select Form' %>
   </div>
 
   <div class="field">
@@ -50,6 +58,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Create Hop', class: 'btn btn-primary' %>
+    <%= form.submit 'Update Yeast', class: 'btn btn-primary' %>
   </div>
 <% end %>

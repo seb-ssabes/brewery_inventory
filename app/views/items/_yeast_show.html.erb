@@ -5,13 +5,18 @@
 <div class="item">
   <div class="item-show-card">
     <p>Name: <%= @item.name %></p>
-    <p>Quantity: <%= @item.quantity %></p>
-    <p>Price: <%= @item.price %></p>
+    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %></p>
+    <p>Unit: <%= @item.unit %></p>
+    <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.') %></p>
     <p>Origin: <%= @item.origin %></p>
-    <p>Colour: <%= @item.color %></p>
+    <p>Supplier: <%= @item.supplier %></p>
+    <p>Attenuation: <%= @item.attenuation.to_i %>%</p>
     <p>Type: <%= @item.item_type %></p>
+    <p>Form: <%= @item.form %></p>
     <p>Expiring date: <%= @item.date %></p>
-    <p>Attenuation <%= @item.attenuation %></p>
-    <p>Notes <%= @item.notes %></p>
+    <p>Notes: <%= @item.notes %></p>
   </div>
 </div>
+
+<%= button_to "Delete Yeast", category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Edit Yeast", edit_category_item_path(@category, @item) %>

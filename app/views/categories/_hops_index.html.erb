@@ -1,0 +1,12 @@
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <div class="item-card">
+        <p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
+        <p>Alpha acid: <%= number_with_precision(@item.alpha, precision: (@item.alpha % 1 == 0 ? 0 : 1))%>%</p>
+        <p>Type: <%= @item.type %></p>
+        <p>Origin: <%= @item.origin %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>

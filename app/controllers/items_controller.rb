@@ -17,8 +17,9 @@ class ItemsController < ApplicationController
   def create
     @item = @category.items.build(item_params)
     if @item.save
-      redirect_to category_path(@category), notice: "Item created"
+      redirect_to category_item_path(@category, @item), notice: 'Item was created.'
     else
+      Rails.logger.info @item.errors.full_messages
       render :new
     end
   end
@@ -28,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: "Item updated"
+      redirect_to category_item_path(@category, @item), notice: "Item updated"
     else
       render :edit
     end
@@ -36,7 +37,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to category_items_path(@item.category), notice: "Item destroyed"
+    redirect_to category_path(@category), notice: "Item destroyed"
   end
 
   private
@@ -52,6 +53,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :quantity, :unit, :color, :price,
                                  :origin, :alpha, :item_type, :date, :notes,
-                                 :supplier)
+                                 :supplier, :form, :attenuation, :potential,
+                                 :yield, :item_category)
+
   end
 end

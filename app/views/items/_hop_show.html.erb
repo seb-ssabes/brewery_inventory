@@ -5,11 +5,15 @@
 <div class="item">
   <div class="item-show-card">
     <p>Name: <%= @item.name %></p>
-    <p>Quantity: <%= @item.quantity %></p>
-    <p>Price: <%= @item.price %></p>
+    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %>g</p>
+    <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.') %> per 100g</p>
     <p>Origin: <%= @item.origin %></p>
-    <p>Alpha: <%= @item.alpha %></p>
+    <p>Alpha acid: <%= number_with_precision(@item.alpha, precision: (@item.alpha % 1 == 0 ? 0 : 1))%>%</p>
     <p>Type: <%= @item.item_type %></p>
     <p>Expiring date: <%= @item.date %></p>
+    <p>Notes: <%= @item.notes %></p>
   </div>
 </div>
+
+<%= button_to "Delete Hop", category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Edit Hop", edit_category_item_path(@category, @item) %>

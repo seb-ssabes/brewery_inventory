@@ -1,0 +1,10 @@
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <div class="item-card">
+        <p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
+        <p>Origin: <%= @item.origin %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>

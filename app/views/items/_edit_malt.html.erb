@@ -1,7 +1,5 @@
-<div class="header">
-  <h1>New Malt</h1>
-  <%= link_to "X", category_path(2) %>
-</div>
+<h1>Edit Malt</h1>
+<%= link_to "X", category_item_path(@category, @item) %>
 
 <%= form_with(model: [@category, @item], local: true) do |form| %>
   <div class="field">
@@ -40,7 +38,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :color %>
+    <%= form.label :colour %>
     <%= form.select :color, options_for_select(['Base', 'Dark', 'Caramel']), prompt: 'Select colour' %>
   </div>
 
@@ -50,7 +48,7 @@
                                                         'Specialty', 'Acidulated', 'Dextrin', 'Meladoinin', 'Smoked',
                                                         'Crystal/Caramel', 'Crystal', 'Caramel', 'Roasted', 'Amber',
                                                         'Biscuit', 'Brown', 'Black', 'Chocolate', 'Roasted Barley', 'Wheat',
-                                                        'Rye']), prompt: 'Select colour' %>
+                                                        'Rye']), prompt: 'Select malt category' %>
   </div>
 
   <div class="field">
@@ -74,6 +72,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Create Malt', class: 'btn btn-primary' %>
+    <%= form.submit 'Update Malt', class: 'btn btn-primary' %>
   </div>
 <% end %>
