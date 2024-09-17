@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = @category.item.build(item_params)
+    @item = @category.items.build(item_params)
     if @item.save
       redirect_to category_path(@category), notice: "Item created"
     else
@@ -50,6 +50,8 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :quantity, :unit, :color)
+    params.require(:item).permit(:name, :quantity, :unit, :color, :price,
+                                 :origin, :alpha, :item_type, :date, :notes,
+                                 :supplier)
   end
 end
