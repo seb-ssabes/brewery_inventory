@@ -35,17 +35,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :item_type, 'Type' %>
+    <%= form.label :item_type, 'Form' %>
     <%= form.select :item_type, options_for_select(['Grain', 'Sugar', 'Liquid Extract']), prompt: 'Select type' %>
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%= form.select :color, options_for_select(['Base', 'Dark', 'Caramel']), prompt: 'Select colour' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :item_category %>
+    <%= form.label :item_category, 'Type' %>
     <%= form.select :item_category, options_for_select(['Base', 'Pilsner', 'Pale Ale', 'Mild Ale', 'Vienna', 'Munich',
                                                         'Specialty', 'Acidulated', 'Dextrin', 'Meladoinin', 'Smoked',
                                                         'Crystal/Caramel', 'Crystal', 'Caramel', 'Roasted', 'Amber',

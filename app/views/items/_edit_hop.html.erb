@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, value: @item.price.to_i, placeholder: 'Price per 100g' %>
+    <%= form.number_field :price, step: '10', value: @item.price.to_i, placeholder: 'Price per 100g' %>
   </div>
 
   <div class="field">
@@ -29,12 +29,12 @@
 
   <div class="field">
     <%= form.label :alpha %>
-    <%= form.number_field :alpha, step: 'any', value: (@item.alpha % 1 == 0 ? @item.alpha.to_i : @item.alpha), placeholder: 'Enter alpha percentage' %>
+    <%= form.number_field :alpha, step: '0.1', value: (@item.alpha % 1 == 0 ? @item.alpha.to_i : @item.alpha.to_s.gsub(',', '.')), placeholder: 'Enter alpha percentage' %>
   </div>
 
   <div class="field">
     <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract']), prompt: 'Select type' %>
+    <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract'], @item.item_type), prompt: 'Select type' %>
   </div>
 
   <div class="field">

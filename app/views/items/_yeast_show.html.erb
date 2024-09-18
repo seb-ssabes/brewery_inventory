@@ -5,12 +5,11 @@
 <div class="item">
   <div class="item-show-card">
     <p>Name: <%= @item.name %></p>
-    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %></p>
-    <p>Unit: <%= @item.unit %></p>
+    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %><%= @item.unit %></p>
     <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.') %></p>
     <p>Origin: <%= @item.origin %></p>
     <p>Supplier: <%= @item.supplier %></p>
-    <p>Attenuation: <%= @item.attenuation.to_i %>%</p>
+    <p>Attenuation: <%= number_with_precision(@item.attenuation, precision: (@item.attenuation % 1 == 0 ? 0 : 1)) %>%</p>
     <p>Type: <%= @item.item_type %></p>
     <p>Form: <%= @item.form %></p>
     <p>Expiring date: <%= @item.date %></p>

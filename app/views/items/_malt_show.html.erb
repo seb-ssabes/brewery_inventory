@@ -5,16 +5,15 @@
 <div class="item">
   <div class="item-show-card">
     <p>Name: <%= @item.name %></p>
-    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %>g</p>
+    <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.quantity.to_i, delimiter: '.') %><%= @item.unit %></p>
     <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.') %></p>
     <p>Origin: <%= @item.origin %></p>
     <p>Supplier: <%= @item.supplier %></p>
-    <p>Colour: <%= @item.color %></p>
-    <p>Type: <%= @item.item_type %></p>
-    <p>Category: <%= @item.item_category %></p>
+    <p>Form: <%= @item.item_type %></p>
+    <p>Type: <%= @item.item_category %></p>
     <p>Expiring date: <%= @item.date %></p>
     <p>Potential: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.potential.to_i, delimiter: '.') %> PPG</p>
-    <p>Yield: <%= @item.yield.to_i %>%</p>
+    <p>Yield: <%= ActiveSupport::NumberHelper.number_to_delimited(@item.yield, delimiter: '.') %>%</p>
     <p>Notes: <%= @item.notes %></p>
   </div>
 </div>

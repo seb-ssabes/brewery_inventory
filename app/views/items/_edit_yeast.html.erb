@@ -9,17 +9,17 @@
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, step: 0.1, placeholder: 'Enter quantity in grams' %>
+    <%= form.number_field :quantity, value: @item.quantity.to_i, step: 0.1, placeholder: 'Enter quantity in grams' %>
   </div>
 
   <div class="field">
     <%= form.label :unit %>
-    <%= form.select :unit, options_for_select(['g', 'ml', 'sachet']), prompt: 'Select unit' %>
+    <%= form.select :unit, options_for_select(['g', 'ml', 'sachet'], @item.unit), prompt: 'Select unit' %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01, placeholder: 'Enter price' %>
+    <%= form.number_field :price, value: @item.price.to_i, step: 0.01, placeholder: 'Enter price' %>
   </div>
 
   <div class="field">
@@ -39,12 +39,12 @@
 
   <div class="field">
     <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other']), prompt: 'Select type' %>
+    <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type), prompt: 'Select type' %>
   </div>
 
   <div class="field">
     <%= form.label :form, 'Form' %>
-    <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry']), prompt: 'Select Form' %>
+    <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form), prompt: 'Select Form' %>
   </div>
 
   <div class="field">
