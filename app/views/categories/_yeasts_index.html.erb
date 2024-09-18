@@ -1,0 +1,7 @@
+<p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
+<p>Origin: <%= item.origin %></p>
+<p>Supplier: <%= item.supplier %></p>
+<p>Type: <%= item.item_type %></p>
+<p>Attenuation: <%= number_with_precision(item.attenuation, precision: (item.attenuation % 1 == 0 ? 0 : 1)) %>%</p>
+
+<%# remove @s from indexes %>

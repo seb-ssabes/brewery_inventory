@@ -9,9 +9,13 @@
         <% @items.each do |item| %>
           <li>
             <div class="item-card">
-              <p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
-              <p>Quantity: <%= ActiveSupport::NumberHelper.number_to_delimited(item.quantity.to_i, delimiter: '.') %>g</p>
-              <p>Price: $<%= ActiveSupport::NumberHelper.number_to_delimited(item.price.to_i, delimiter: '.') %></p>
+              <% if item.category.name == 'Hops' %>
+                <%= render 'hops_index', item: item %>
+              <% elsif item.category.name == 'Malts' %>
+                <%= render 'malts_index', item: item %>
+              <% elsif item.category.name == 'Yeasts' %>
+                <%= render 'yeasts_index', item: item %>
+              <% end %>
             </div>
           </li>
         <% end %>
