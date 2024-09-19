@@ -1,12 +1,12 @@
-<div class="bg-gray-100 p-6 flex items-center justify-center">
-  <h1 class="text-3xl font-bold mb-0">Inventory</h1>
-</div>
+<header class="bg-gray-100 p-6 flex items-center justify-center">
+  <h1 class="text-3xl font-bold">Inventory</h1>
+</header>
 
-<div class="categories">
-  <ul>
+<div class="flex-1 p-6">
+  <ul clas="flex flex-1 flex-col h-full">
     <% @categories.each do |category| %>
-      <%= link_to category_path(category), class: 'category-link' do %>
-        <li class="category-card">
+      <%= link_to category_path(category), class: 'block' do %>
+        <li class="flex flex-1 items-center justify-between shadow-md p-6 rounded-lg">
           <div class="icon">
             <% if category.name == 'Hops' %>
               <i class="fa-solid fa-leaf"></i>
