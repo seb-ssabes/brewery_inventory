@@ -1,12 +1,27 @@
 <div class="header">
-  <h1>Inventory</h1>
+  <h1>Inventoryy</h1>
 </div>
+
 <div class="categories">
-  <div class="category">
-    <ul>
-      <% @categories.each do |category| %>
-        <li><%= link_to category.name, category_path(category) %></li>
+  <ul>
+    <% @categories.each do |category| %>
+      <%= link_to category_path(category), class: 'category-link' do %>
+        <li class="category-card">
+          <div class="icon">
+            <% if category.name == 'Hops' %>
+              <i class="fa-solid fa-leaf"></i>
+            <% elsif category.name == 'Malts' %>
+              <i class="fa-solid fa-wheat-awn"></i>
+            <% elsif category.name == 'Yeasts' %>
+              <i class="fa-solid fa-flask"></i>
+            <% end %>
+          </div>
+          <div class="category-content">
+            <h3><%= category.name %></h3>
+            <p><%= category.items.count %></p>
+          </div>
+        </li>
       <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
 </div>

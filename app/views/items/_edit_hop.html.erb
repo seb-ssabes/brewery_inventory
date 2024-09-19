@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, step: '10', value: @item.price.to_i, placeholder: 'Price per 100g' %>
+    <%= form.number_field :price, step: 'any', value: @item.price.to_i, placeholder: 'Price per 100g' %>
   </div>
 
   <div class="field">
