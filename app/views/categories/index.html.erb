@@ -6,8 +6,8 @@
   <ul class="flex flex-col gap-8">
     <% @categories.each do |category| %>
       <%= link_to category_path(category), class: 'block' do %>
-        <li class="flex items-center justify-between py-20 shadow-md border-2 border-black rounded-lg">
-          <div class="icon">
+        <li class="flex items-center py-16 shadow-md border-2 rounded-lg">
+          <div class="icon flex justify-center flex-shrink-0 w-2/5 text-7xl">
             <% if category.name == 'Hops' %>
               <i class="fa-solid fa-leaf"></i>
             <% elsif category.name == 'Malts' %>
@@ -16,9 +16,9 @@
               <i class="fa-solid fa-flask"></i>
             <% end %>
           </div>
-          <div class="category-content">
-            <h3><%= category.name %></h3>
-            <p><%= category.items.count %></p>
+          <div class="category-content flex flex-col items-center justify-center flex-grow">
+            <h3 class="text-4xl"><%= category.name %></h3>
+            <p class="flex-shrink-0 text-2xl"><%= category.items.count %></p>
           </div>
         </li>
       <% end %>
