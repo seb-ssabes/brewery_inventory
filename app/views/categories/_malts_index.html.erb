@@ -1,4 +1,4 @@
-<p>Name: <%= link_to item.name, category_item_path(@category, item) %></p>
-<p>Origin: <%= item.origin %></p>
-<p>Potential: <%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
-<p>Type: <%= item.item_category %></p>
+<p><%= link_to item.name, category_item_path(@category, item) %></p>
+<p><%= item.origin %></p>
+<p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
+<p><%= item.item_category %></p>

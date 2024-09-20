@@ -1,14 +1,15 @@
-<div class="header">
-  <h1><%= @category.name %></h1>
-  <%= link_to "X", root_path %>
-</div>
+<header class="bg-gray-100 p-6 flex items-center justify-between relative">
+  <h1 class="text-3xl font-bold mx-auto"><%= @category.name %></h1>
+  <p class="text-xl font-bold ml-10 absolute right-6"><%= link_to "X", root_path, class: 'items-center justify-center' %></p>
+</header>
+
 <div class="items">
   <div class="item">
     <% if @items.any? %>
       <ul>
         <% @items.each do |item| %>
           <li>
-            <div class="item-card">
+            <div class="item-card flex items-center py-16 shadow-md border-2 rounded-lg">
               <% if item.category.name == 'Hops' %>
                 <%= render 'hops_index', item: item %>
               <% elsif item.category.name == 'Malts' %>
@@ -28,6 +29,6 @@
   </div>
 </div>
 
-<div class="add-item-button">
+<footer class="add-item-button">
     <%= link_to "Add #{@category.name}", new_category_item_path(@category), class: "button" %>
-</div>
+</footer>
