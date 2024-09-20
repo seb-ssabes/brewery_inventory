@@ -2,11 +2,11 @@
   <h1 class="text-3xl font-bold">Inventory</h1>
 </header>
 
-<div class="flex-1 p-6">
-  <ul clas="flex flex-1 flex-col h-full">
+<div class="flex flex-1 flex-col p-7">
+  <ul class="flex flex-col gap-8">
     <% @categories.each do |category| %>
       <%= link_to category_path(category), class: 'block' do %>
-        <li class="flex flex-1 items-center justify-between shadow-md p-6 rounded-lg">
+        <li class="flex items-center justify-between py-20 shadow-md border-2 border-black rounded-lg">
           <div class="icon">
             <% if category.name == 'Hops' %>
               <i class="fa-solid fa-leaf"></i>
