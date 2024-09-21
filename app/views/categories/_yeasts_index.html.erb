@@ -1,6 +1,16 @@
-<p><%= link_to item.name, category_item_path(@category, item) %></p>
-<p><%= item.origin %></p>
-<p><%= item.supplier %></p>
-<p><%= item.item_type %></p>
-<p><%= number_with_precision(item.attenuation, precision: (item.attenuation % 1 == 0 ? 0 : 1)) %>%</p>
-
+<div class="item-card flex flex-col">
+  <div class="item-card-title text-xl">
+    <h2><%= item.name %></h2>
+  </div>
+  <div class="item-card-data flex flex-row gap-2">
+    <div>
+      <p><%= number_with_precision(item.attenuation, precision: (item.attenuation % 1 == 0 ? 0 : 1)) %>%</p>
+    </div>
+    <div>-</div>
+    <div><p><%= item.supplier %></p></div>
+    <div>-</div>
+    <div><p><%= item.origin %></p></div>
+    <div>-</div>
+    <div><p><%= item.item_type %></p></div>
+  </div>
+</div>

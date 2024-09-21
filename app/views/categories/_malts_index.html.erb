@@ -1,4 +1,14 @@
-<p><%= link_to item.name, category_item_path(@category, item) %></p>
-<p><%= item.origin %></p>
-<p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
-<p><%= item.item_category %></p>
+<div class="item-card flex flex-col">
+  <div class="item-card-title text-xl">
+    <h2><%= item.name %></h2>
+  </div>
+  <div class="item-card-data flex flex-row gap-2">
+    <div>
+      <p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
+    </div>
+    <div>-</div>
+    <div><p><%= item.item_category %></p></div>
+    <div>-</div>
+    <div><p><%= item.origin %></p></div>
+  </div>
+</div>
