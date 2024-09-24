@@ -7,7 +7,7 @@
     <% if @items.any? %>
       <ul class="flex flex-col gap-4">
         <% @items.each do |item| %>
-          <%= link_to category_item_path(@category, item), class: 'block' do %>
+          <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
             <li>
               <div class="item-card flex items-center p-4 border-2 rounded-lg">
                 <% if item.category.name == 'Hops' %>

@@ -1,8 +1,8 @@
 <%= form_with(model: [@category, @item], local: true) do |form| %>
 
-  <header class="bg-gray-100 p-6 flex items-center justify-between relative">
-    <div class="field text-3xl font-bold mx-auto">
-      <%= form.text_field :name, placeholder: 'Enter hop name' %>
+  <header class="bg-gray-100 p-5 flex items-center justify-center relative">
+    <div class="field font-bold">
+      <%= form.text_field :name, placeholder: 'Enter hop name', class: "text-3xl border-none bg-gray-100 text-center" %>
     </div>
   </header>
 
@@ -16,7 +16,7 @@
       <div class="grid grid-rows-2 gap-4 rows-span-1">
         <div class="mb-1.5">
           <%= form.label :price, class: 'block' %>
-          <%= form.number_field :price, step: 'any', value: @item.price.to_i, placeholder: 'Price per 100g', class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :price, step: 'any', value: ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.'), placeholder: 'Price per 100g', class: 'w-full rounded-md border-gray-300 p-2' %>
         </div>
 
         <div class="">
@@ -39,9 +39,16 @@
     </div>
 
     <div class="grid grid-cols-2 gap-4 mt-4">
-      <div class="">
-        <%= form.label :item_type, 'Type' %>
-        <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract'], @item.item_type), prompt: 'Select type', class: "w-full rounded-md border-gray-300 p-2" %>
+      <div>
+        <%= form.label :item_type, 'Type', class: "block text-sm font-medium text-gray-700" %>
+        <div class="relative mt-1 !important">
+          <%= form.select :item_type,
+            options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract'], @item.item_type),
+            prompt: 'Select type',
+            class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                    focus:border-indigo-500 sm:text-sm !important'
+          %>
+        </div>
       </div>
 
       <div class="">
