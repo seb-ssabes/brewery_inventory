@@ -1,6 +1,9 @@
+<header class="bg-gray-100 p-6 flex items-center justify-between relative">
+  <h1 class="text-3xl font-bold mx-auto"><%= @item.name %></h1>
+</header>
+
 <div class="header">
   <h1><%= @item.name %></h1>
-  <%= link_to "X", category_path(1) %>
 </div>
 <div class="item">
   <div class="item-show-card">
@@ -15,5 +18,12 @@
   </div>
 </div>
 
-<%= button_to "Delete Hop", category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to "Edit Hop", edit_category_item_path(@category, @item) %>
+<footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full">
+  <div class="flex items-center justify-between w-full px-6">
+    <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center"  do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+    <%= link_to "Edit Hop", edit_category_item_path(@category, @item) %>
+    <p><%= link_to "X", category_path(1), class: 'items-center justify-center' %></p>
+  </div>
+</footer>

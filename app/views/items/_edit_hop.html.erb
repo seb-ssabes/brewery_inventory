@@ -1,54 +1,64 @@
-<h1>Edit Hop</h1>
-<%= link_to "X", category_item_path(@category, @item) %>
-
 <%= form_with(model: [@category, @item], local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, placeholder: 'Enter hop name' %>
+
+  <header class="bg-gray-100 p-6 flex items-center justify-between relative">
+    <div class="field text-3xl font-bold mx-auto">
+      <%= form.text_field :name, placeholder: 'Enter hop name' %>
+    </div>
+  </header>
+
+  <div class="container p-6">
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, value: @item.quantity.to_i, placeholder: 'Enter quantity in grams' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, step: 'any', value: @item.price.to_i, placeholder: 'Price per 100g' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :origin %>
+      <%= form.text_field :origin, placeholder: 'Enter origin country' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :supplier %>
+      <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :alpha %>
+      <%= form.number_field :alpha, step: '0.1', value: (@item.alpha % 1 == 0 ? @item.alpha.to_i : @item.alpha.to_s.gsub(',', '.')), placeholder: 'Enter alpha percentage' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :item_type, 'Type' %>
+      <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract'], @item.item_type), prompt: 'Select type' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :date, 'Expiring date' %>
+      <%= form.date_field :date, value: Date.today %>
+    </div>
+
+    <div class="field">
+      <%= form.label :notes %>
+      <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, value: @item.quantity.to_i, placeholder: 'Enter quantity in grams' %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, step: 'any', value: @item.price.to_i, placeholder: 'Price per 100g' %>
-  </div>
+  <footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full">
+    <div class="flex items-center justify-between w-full px-6">
+      <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center"  do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+      <div class="actions">
+        <%= form.submit 'Update Hop', class: 'btn btn-primary' %>
+      </div>
+      <p><%= link_to "<-", category_path(1), class: 'items-center justify-center' %></p>
+    </div>
+  </footer>
 
-  <div class="field">
-    <%= form.label :origin %>
-    <%= form.text_field :origin, placeholder: 'Enter origin country' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supplier %>
-    <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alpha %>
-    <%= form.number_field :alpha, step: '0.1', value: (@item.alpha % 1 == 0 ? @item.alpha.to_i : @item.alpha.to_s.gsub(',', '.')), placeholder: 'Enter alpha percentage' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Pellet', 'Whole', 'Cryo', 'CO2 Extract'], @item.item_type), prompt: 'Select type' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date, 'Expiring date' %>
-    <%= form.date_field :date, value: Date.today %>
-  </div>
-
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit 'Update Hop', class: 'btn btn-primary' %>
-  </div>
 <% end %>
