@@ -64,16 +64,21 @@
     </div>
   </div>
 
-  <footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full">
-    <div class="flex items-center justify-between w-full px-6">
-      <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center"  do %>
-        <i class="fa-solid fa-trash-can"></i>
-      <% end %>
+  <footer class="bg-gray-100 pb-3 flex items-center justify-center fixed bottom-0 mx-40" style="z-index: 10;">
+    <div class="flex items-center w-full px-3">
       <div class="actions">
-        <%= form.submit 'SAVE', class: 'btn btn-primary' %>
+        <%= form.submit 'SAVE', class: '' %>
       </div>
-      <p><%= link_to "<-", category_path(1), class: 'items-center justify-center' %></p>
     </div>
   </footer>
 
 <% end %>
+
+<footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full" style="z-index: 1;">
+  <div class="flex items-center justify-between w-full px-3">
+    <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center" do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+    <p><%= link_to "<-", category_path(1), class: 'items-center justify-center' %></p>
+  </div>
+</footer>
