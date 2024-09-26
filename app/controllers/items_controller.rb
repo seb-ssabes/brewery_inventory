@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to category_item_path(@category, @item), notice: "Item updated"
+      redirect_to edit_category_item_path(@category, @item), notice: "Item updated"
     else
       render :edit
     end
