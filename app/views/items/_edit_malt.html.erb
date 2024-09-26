@@ -8,19 +8,25 @@
 
   <div class="container p-6">
     <div class="grid grid-cols-2 gap-4">
-      <div class="rows-span-2">
+      <div class="rows-span-2 relative">
         <%= form.label :quantity, class: 'block' %>
-        <%= form.number_field :quantity, value: @item.quantity.to_i, placeholder: 'Enter quantity in grams', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
+        <div class="flex items-center">
+          <%= form.number_field :quantity, value: @item.quantity.to_i, step: 'any', placeholder: '0', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
+          <div class="absolute right-3 pt-4 text-black">g</div>
+        </div>
       </div>
 
       <div class="grid grid-rows-2 gap-4 rows-span-1">
-        <div class="mb-1.5">
-          <%= form.label :price, class: 'block' %>
-          <%= form.number_field :price, step: 'any', value: ActiveSupport::NumberHelper.number_to_delimited(@item.price.to_i, delimiter: '.'), placeholder: 'Price per 100g', class: 'w-full rounded-md border-gray-300 p-2' %>
+        <div class="mb-1.5 relative">
+          <%= form.label :price, 'Price (1 kg)', class: 'block' %>
+          <div class="flex items-center">
+            <div class="absolute left-2 text-black">$</div>
+            <%= form.number_field :price, placeholder: '0', value: @item.price.to_i, class: 'w-full pl-5 rounded-md border-gray-300 p-2', step: 'any', id: 'price_field' %>
+          </div>
         </div>
 
         <div class="">
-          <%= form.label :potential, class: 'block' %>
+          <%= form.label :potential, 'Potential (PPG)', class: 'block' %>
           <%= form.number_field :potential, step: '0.1', value: @item.potential.to_i, class: 'w-full rounded-md border-gray-300 p-2' %>
         </div>
       </div>
@@ -42,7 +48,7 @@
       <div class="">
         <%= form.label :item_type, 'Form', class:'block' %>
         <%= form.select :item_type,
-          options_for_select(['Grain', 'Sugar', 'Liquid Extract'], @item.item_type),
+          options_for_select(['Grain', 'Sugar'], @item.item_type),
           prompt: 'Select type',
           class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
                   focus:border-indigo-500 sm:text-sm !important'
@@ -63,9 +69,9 @@
     </div>
 
     <div class="grid grid-cols-2 gap-4 mt-4">
-      <div class="field">
-        <%= form.label :yield, class: 'block' %>
-        <%= form.number_field :yield, step: 0.1, placeholder: 'Enter Yield', class: 'w-full rounded-md border-gray-300 p-2' %>
+      <div class="">
+        <%= form.label :yield, 'Yield (%)', class: 'block' %>
+        <%= form.number_field :yield, step: 0.1, value: number_with_precision(@item.yield, precision: (@item.yield % 1 == 0 ? 0 : 1)), class: 'w-full rounded-md border-gray-300 p-2' %>
       </div>
 
       <div class="">

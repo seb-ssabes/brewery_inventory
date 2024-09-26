@@ -1,65 +1,86 @@
-<div class="header">
-  <h1>New Yeast</h1>
-  <%= link_to "X", category_path(3) %>
-</div>
-
 <%= form_with(model: [@category, @item], local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, placeholder: 'Enter hop name' %>
+
+  <header class="bg-gray-100 p-5 flex items-center justify-center relative">
+    <div class="field font-bold">
+      <%= form.text_field :name, placeholder: 'Yeast name', class: "text-3xl border-none bg-gray-100 text-center" %>
+    </div>
+  </header>
+
+  <div class="container p-6">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rows-span-2">
+        <%= form.label :quantity, class: 'block' %>
+        <%= form.number_field :quantity, placeholder: '0', value: @item.quantity.to_i, class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
+      </div>
+
+      <div class="grid grid-rows-2 gap-4 rows-span-1">
+        <div class="mb-1.5">
+          <%= form.label :price, 'Price (sachet ~11g)', class: 'block' %>
+          <%= form.number_field :price, placeholder: '$0', class: 'w-full rounded-md border-gray-300 p-2' %>
+        </div>
+
+        <div class="field">
+          <%= form.label :attenuation, class: 'block' %>
+          <%= form.number_field :attenuation, step: 0.01, placeholder: '%', class: 'w-full rounded-md border-gray-300 p-2' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="">
+        <%= form.label :origin %>
+        <%= form.text_field :origin, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+      </div>
+
+      <div class="">
+        <%= form.label :supplier %>
+        <%= form.text_field :supplier, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="">
+        <%= form.label :form, 'Form', class: 'block' %>
+        <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form),
+                               prompt: '-',
+                               class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                                      focus:border-indigo-500 sm:text-sm !important'
+        %>
+      </div>
+      <div class="">
+        <%= form.label :item_type, 'Type', class: 'block' %>
+        <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type),
+                                    prompt: '-',
+                                    class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                                            focus:border-indigo-500 sm:text-sm !important'
+        %>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <%= form.label :date, 'Expiring date' %>
+      <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 p-2" %>
+    </div>
+
+    <div class="col-span-2 mt-4">
+      <%= form.label :notes %>
+      <%= form.text_area :notes, placeholder: '-', rows: 4, class: "w-full rounded-md border-gray-300 p-3" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, step: 0.1, placeholder: 'Enter quantity in grams' %>
-  </div>
+  <footer class="bg-gray-100 pb-3 flex items-center justify-center fixed bottom-0 mx-40" style="z-index: 10;">
+    <div class="flex items-center w-full px-3">
+      <div class="actions">
+        <%= form.submit 'SAVE', class: '' %>
+      </div>
+    </div>
+  </footer>
 
-  <div class="field">
-    <%= form.label :unit %>
-    <%= form.select :unit, options_for_select(['g', 'ml', 'sachet']), prompt: 'Select unit' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01, placeholder: 'Enter price' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :origin %>
-    <%= form.text_field :origin, placeholder: 'Enter origin country' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supplier %>
-    <%= form.text_field :supplier, placeholder: 'Enter supplier name' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :attenuation %>
-    <%= form.number_field :attenuation, step: 0.01, placeholder: 'Enter Attenuation' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :item_type, 'Type' %>
-    <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other']), prompt: 'Select type' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :form, 'Form' %>
-    <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry']), prompt: 'Select Form' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date, 'Expiring date' %>
-    <%= form.date_field :date, value: Date.today %>
-  </div>
-
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Create Yeast', class: 'btn btn-primary' %>
-  </div>
 <% end %>
+
+<footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full" style="z-index: 1;">
+  <div class="flex items-center justify-between w-full px-3">
+    <div></div>
+    <p class="ml-auto"><%= link_to "<-", category_path(3), class: 'items-center justify-center' %></p>
+  </div>
+</footer>
