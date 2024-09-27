@@ -1,8 +1,8 @@
-<div class="item-card flex flex-col">
+<div class="flex flex-col p-4 rounded-lg border-2 relative">
   <div class="item-card-title text-xl">
     <h2><%= item.name %></h2>
   </div>
-  <div class="item-card-data flex flex-row gap-2">
+  <div class="item-card-data flex flex-row gap-2 text-gray-400">
     <div>
       <p><%= number_with_precision(item.alpha, precision: (item.alpha % 1 == 0 ? 0 : 1))%>%</p>
     </div>
@@ -10,5 +10,18 @@
     <div><p><%= item.item_type %></p></div>
     <div>-</div>
     <div><p><%= item.origin %></p></div>
+  </div>
+
+  <div class="absolute top-0 right-0 p-2">
+    <img src="<%= case item.alpha
+            when 1..5
+              asset_path('hop-low.png')
+            when 6..10
+              asset_path('hop-medium-light.png')
+            when 11..15
+              asset_path('hop-medium-dark.png')
+            else
+              asset_path('hop-high.png')
+            end %>" alt="Hop" class="hop-icon" />
   </div>
 </div>

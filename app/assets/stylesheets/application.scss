@@ -11,3 +11,27 @@
 .yeasts-header {
   background: linear-gradient(in hsl, #fdf3de, #ffdd92);
 }
+
+.light-green {
+  box-shadow: inset 8px 20px 8px #d4edbf
+}
+
+.medium-light-green {
+  box-shadow: inset 8px 8px 20px #b0da8b
+}
+
+.medium-dark-green {
+  box-shadow: inset 8px 8px 20px #8bb746
+}
+
+.dark-green {
+  box-shadow: inset 8px 8px 20px #628b2e
+}
+
+.hop-icon {
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 13px;
+}
+
