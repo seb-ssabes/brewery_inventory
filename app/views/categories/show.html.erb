@@ -1,34 +1,46 @@
-<header class="bg-gray-100 p-6 flex items-center justify-between relative">
-  <h1 class="text-3xl font-bold mx-auto"><%= @category.name %></h1>
-</header>
+<div class="relative">
+  <% if @category.name == "Hops" %>
+    <header class="hops-header p-6 flex items-center justify-between relative">
+      <h1 class="text-white text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+  <% elsif @category.name == "Malts" %>
+    <header class="malts-header p-6 flex items-center justify-between relative">
+      <h1 class="text-white text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+  <% else %>
+    <header class="yeasts-header p-6 flex items-center justify-between relative">
+      <h1 class="text-gray-500 text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+  <% end %>
+  </header>
 
-<div class="items p-4">
-  <div class="item">
-    <% if @items.any? %>
-      <ul class="flex flex-col gap-4">
-        <% @items.each do |item| %>
-          <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
-            <li>
-              <div class="item-card flex items-center p-4 border-2 rounded-lg">
-                <% if item.category.name == 'Hops' %>
-                  <%= render 'hops_index', item: item %>
-                <% elsif item.category.name == 'Malts' %>
-                  <%= render 'malts_index', item: item %>
-                <% elsif item.category.name == 'Yeasts' %>
-                  <%= render 'yeasts_index', item: item %>
-                <% end %>
-              </div>
-            </li>
+
+  <div class="items p-4 relative bg-white -mt-6 rounded-t-2xl z-10">
+    <div class="item">
+      <% if @items.any? %>
+        <ul class="flex flex-col gap-4">
+          <% @items.each do |item| %>
+            <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
+              <li>
+                <div class="item-card flex items-center p-4 border-2 rounded-lg">
+                  <% if item.category.name == 'Hops' %>
+                    <%= render 'hops_index', item: item %>
+                  <% elsif item.category.name == 'Malts' %>
+                    <%= render 'malts_index', item: item %>
+                  <% elsif item.category.name == 'Yeasts' %>
+                    <%= render 'yeasts_index', item: item %>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-    <% else %>
-      <div class="empty-category">
-        <p>No <%= @category.name %> has been added yet.</p>
-      </div>
-    <% end %>
+        </ul>
+      <% else %>
+        <div class="empty-category">
+          <p>No <%= @category.name %> has been added yet.</p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
 
 <footer class="add-item-button bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full">
     <%= link_to "Add #{@category.name}", new_category_item_path(@category), class: "button" %>

@@ -1,8 +1,13 @@
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        hopGreen: '#628b2e',
+        lightGreen: 'd4edbf',
+      },
+    },
   },
   variants: {
     extend: {},

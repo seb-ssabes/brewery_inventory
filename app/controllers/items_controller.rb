@@ -17,9 +17,14 @@ class ItemsController < ApplicationController
   def create
     @item = @category.items.build(item_params)
     if @item.save
-      redirect_to category_item_path(@category, @item), notice: 'Item was created.'
+      if @item.category.name == 'Hops'
+        redirect_to category_path(1), notice: 'Item was created.'
+      elsif @category.name == 'Malts'
+        redirect_to category_path(2), notice: 'Item was created.'
+      elsif @item.category.name == 'Yeasts'
+        redirect_to category_path(3), notice: 'Item was created.'
+      end
     else
-      Rails.logger.info @item.errors.full_messages
       render :new
     end
   end
