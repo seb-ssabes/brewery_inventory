@@ -1,13 +1,13 @@
 <div class="relative">
   <% if @category.name == "Hops" %>
     <header class="hops-header p-6 flex items-center justify-between relative">
-      <h1 class="text-white text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
   <% elsif @category.name == "Malts" %>
     <header class="malts-header p-6 flex items-center justify-between relative">
-      <h1 class="text-white text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
   <% else %>
     <header class="yeasts-header p-6 flex items-center justify-between relative">
-      <h1 class="text-gray-500 text-3xl font-bold mx-auto mb-4 -mt-1"><%= @category.name %></h1>
+      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
   <% end %>
   </header>
 
