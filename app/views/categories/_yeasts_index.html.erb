@@ -1,8 +1,8 @@
-<div class="item-card flex flex-col">
+<div class="flex flex-col p-4 rounded-lg border-2 relative">
   <div class="item-card-title text-xl">
     <h2><%= item.name %></h2>
   </div>
-  <div class="item-card-data flex flex-row gap-2">
+  <div class="item-card-data flex flex-row gap-2 text-gray-400">
     <div>
       <p><%= number_with_precision(item.attenuation, precision: (item.attenuation % 1 == 0 ? 0 : 1)) %>%</p>
     </div>
@@ -12,5 +12,9 @@
     <div><p><%= item.origin %></p></div>
     <div>-</div>
     <div><p><%= item.item_type %></p></div>
+  </div>
+
+  <div class="absolute top-0 right-0 p-2">
+    <img src="<%= asset_path('yeast.png') %>" alt="Yeast" class="w-14 h-auto object-contain mt-1.5" />
   </div>
 </div>
