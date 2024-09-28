@@ -70,7 +70,7 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="field">
         <%= form.label :yield, class: 'block' %>
-        <%= form.number_field :yield, placeholder: '%', step: 0.1, class: 'w-full rounded-md border-gray-300 p-2' %>
+        <%= form.number_field :yield, placeholder: '%', required: true, step: 0.1, min: 60, max: 85, class: 'w-full rounded-md border-gray-300 p-2' %>
       </div>
 
       <div class="">

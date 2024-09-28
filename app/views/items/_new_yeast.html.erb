@@ -21,7 +21,7 @@
 
         <div class="field">
           <%= form.label :attenuation, class: 'block' %>
-          <%= form.number_field :attenuation, step: 0.01, placeholder: '%', class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :attenuation, step: 0.01, min: 60, max: 85, required: true, placeholder: '%', class: 'w-full rounded-md border-gray-300 p-2' %>
         </div>
       </div>
     </div>
@@ -29,12 +29,12 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :origin, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
       </div>
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
       </div>
     </div>
 
@@ -43,23 +43,25 @@
         <%= form.label :form, 'Form', class: 'block' %>
         <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form),
                                prompt: '-',
-                               class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                                      focus:border-indigo-500 sm:text-sm !important'
+                              #  class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                              #         focus:border-indigo-500 sm:text-sm !important',
+                               required: true
         %>
       </div>
       <div class="">
         <%= form.label :item_type, 'Type', class: 'block' %>
         <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type),
                                     prompt: '-',
-                                    class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                                            focus:border-indigo-500 sm:text-sm !important'
+                                    class: 'form-select block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                                            focus:border-indigo-500 sm:text-sm !important',
+                                    required: true
         %>
       </div>
     </div>
 
     <div class="mt-4">
       <%= form.label :date, 'Expiring date' %>
-      <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 p-2" %>
+      <%= form.date_field :date, class: "w-full rounded-md border-gray-300 p-2" %>
     </div>
 
     <div class="col-span-2 mt-4">
