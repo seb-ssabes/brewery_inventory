@@ -2,7 +2,7 @@
   <div class="item-card-title text-xl">
     <h2><%= item.name %></h2>
   </div>
-  <div class="item-card-data flex flex-row gap-2">
+  <div class="item-card-data flex flex-row gap-2 text-gray-400">
     <div>
       <p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
     </div>
@@ -10,5 +10,18 @@
     <div><p><%= item.item_category %></p></div>
     <div>-</div>
     <div><p><%= item.origin %></p></div>
+  </div>
+
+  <div class="absolute top-0 right-0 p-2 mt-0.5">
+    <img src="<%= case item.item_category
+                  when 'Pilsner', 'Base', 'Vienna', 'Mild Ale', 'Wheat', 'Carapils'
+                    asset_path('malt-low.png')
+                  when 'Pale Ale', 'Munich', 'Smoked'
+                    asset_path('malt-medium-light.png')
+                  when 'Crystal', 'Caramel', 'Amber', 'Biscuit'
+                    asset_path('malt-medium-dark.png')
+                  when 'Roasted', 'Brown', 'Black', 'Chocolate', 'Carafa', 'Rye'
+                    asset_path('malt-high.png')
+                  end %>" alt="Malt" class="item-icon"/>
   </div>
 </div>
