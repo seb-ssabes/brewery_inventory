@@ -2,7 +2,7 @@
 
   <header class="bg-gray-100 p-5 flex items-center justify-center relative">
     <div class="field font-bold">
-      <%= form.text_field :name, placeholder: 'Hop name', class: "text-3xl border-none bg-gray-100 text-center" %>
+      <%= form.text_field :name, placeholder: 'Hop name', required: true, class: "text-3xl border-none bg-gray-100 text-center" %>
     </div>
   </header>
 
@@ -11,19 +11,19 @@
       <div class="rows-span-2 relative">
         <%= form.label :quantity, class: 'block' %>
         <div class="flex items-center">
-          <%= form.number_field :quantity, value: @item.quantity.to_i, step: 'any', placeholder: '0', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
+          <%= form.number_field :quantity, step: 'any', placeholder: '0', required: true, class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
           <div class="absolute right-3 pt-4 text-black">g</div>
         </div>
       </div>
       <div class="grid grid-rows-2 gap-4 rows-span-1">
         <div class="mb-1.5">
           <%= form.label :price, 'Price (100g)', class: 'block' %>
-          <%= form.number_field :price, placeholder: '$0', step: 'any', class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :price, placeholder: '$0', step: 'any', required: true, class: 'w-full rounded-md border-gray-300 p-2' %>
         </div>
 
         <div class="">
           <%= form.label :alpha, class: 'block' %>
-          <%= form.number_field :alpha, step: '0.1', placeholder: '%', class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :alpha, step: '0.1', required: true, placeholder: '%', min: 0, max: 22, class: 'w-full rounded-md border-gray-300 p-2' %>
         </div>
       </div>
     </div>
@@ -31,12 +31,12 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :origin, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
       </div>
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: '-', class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
       </div>
     </div>
 
@@ -48,14 +48,15 @@
             options_for_select(['Pellet', 'Whole'], @item.item_type),
             prompt: 'Select type',
             class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                    focus:border-indigo-500 sm:text-sm !important'
+                    focus:border-indigo-500 sm:text-sm !important',
+            required: true
           %>
         </div>
       </div>
 
       <div class="">
         <%= form.label :date, 'Expiring date' %>
-        <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.date_field :date, class: "w-full rounded-md border-gray-300 p-2" %>
       </div>
     </div>
 
@@ -69,7 +70,7 @@
   <footer class="bg-gray-100 pb-3 flex items-center justify-center fixed bottom-0 mx-40" style="z-index: 10;">
     <div class="flex items-center w-full px-3">
       <div class="actions">
-        <%= form.submit 'SAVE', class: '' %>
+        <%= form.submit 'ADD', class: '' %>
       </div>
     </div>
   </footer>

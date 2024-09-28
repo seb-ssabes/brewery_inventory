@@ -25,6 +25,8 @@ class ItemsController < ApplicationController
         redirect_to category_path(3), notice: 'Item was created.'
       end
     else
+      Rails.logger.debug "Validation errors: #{@item.errors.full_messages.join(', ')}"
+
       render :new
     end
   end
