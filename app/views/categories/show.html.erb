@@ -40,7 +40,17 @@
 </div>
 
 
-<footer class="add-item-button bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full">
-    <%= link_to "Add #{@category.name}", new_category_item_path(@category), class: "button" %>
+<footer class="bg-white p-1 flex items-center justify-center fixed bottom-0 w-full shadow-top">
+    <%= link_to new_category_item_path(@category), class: "button" do %>
+      <%= image_tag case @category.name
+                    when 'Hops'
+                      asset_path('hop-new.png')
+                    when 'Malts'
+                      asset_path('malt-new.png')
+                    else
+                    asset_path('yeast-new.png')
+                    end,
+                    class: "mx-auto w-14" %>
+    <% end %>
     <p class="text-xl ml-10 absolute right-6"><%= link_to "X", root_path, class: 'items-center justify-center' %></p>
 </footer>
