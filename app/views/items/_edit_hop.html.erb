@@ -1,12 +1,12 @@
 <%= form_with(model: [@category, @item], local: true) do |form| %>
   <div class="relative">
-    <header class="hops-header p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full -my-2">
-      <div class="-mb-2">
+    <header class="hops-header p-5 flex items-center justify-between z-50 top-0 left-0 w-full -my-2">
+      <div class="">
         <%= form.text_field :name, placeholder: 'Hop name', class: "text-gray-800 border-transparent focus:border-transparent focus:ring-transparent text-3xl border-none bg-transparent text-center w-full" %>
       </div>
     </header>
 
-    <div class="container p-4 relative bg-white z-10 content-container items text-lg">
+    <div class="container p-4 relative bg-white z-10 content-container text-lg">
       <div class="grid grid-cols-2 gap-4">
         <div class="rows-span-2 relative">
           <%= form.label :quantity, class: 'block' %>
@@ -16,7 +16,7 @@
           </div>
         </div>
 
-        <div class="grid grid-rows-2 gap-4 rows-span-1">
+        <div class="grid grid-rows-2 gap-3 rows-span-1">
           <div class="mb-1.5 relative">
             <%= form.label :price, 'Price (100g)', class: 'block' %>
             <div class="flex items-center">
@@ -46,7 +46,7 @@
 
       <div class="grid grid-cols-2 gap-4 mt-4">
         <div>
-          <%= form.label :item_type, 'Type', class: "block text-sm font-medium text-gray-700" %>
+          <%= form.label :item_type, 'Type', class: "block text-lg" %>
           <div class="relative mt-1 !important focus:border-gray-600 focus:ring-gray-500">
             <%= form.select :item_type,
               options_for_select(['Pellet', 'Whole'], @item.item_type),
@@ -81,11 +81,16 @@
   <% end %>
 </div>
 
-<footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full" style="z-index: 1;">
-  <div class="flex items-center justify-between w-full px-3">
+<footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-50 rounded-md">
+  <div class="w-8">
     <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center" do %>
-      <i class="fa-solid fa-trash-can"></i>
+      <i class="fa-solid fa-trash-can trash w-8 text-xl mt-0.5"></i>
     <% end %>
-    <p><%= link_to "<-", category_path(1), class: 'items-center justify-center' %></p>
+  </div>
+  <div class=""></div>
+  <div class="ml-auto mr-1">
+    <%= link_to category_path(1), class: '' do %>
+      <%= image_tag asset_path('back.png'), class: 'w-8' %>
+    <% end %>
   </div>
 </footer>

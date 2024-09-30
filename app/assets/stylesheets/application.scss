@@ -1,15 +1,15 @@
 @import "font-awesome";
 
 .hops-header {
-  background: linear-gradient(in hsl, #9cb67a, #d4edbf);
+  background: linear-gradient(in hsl, #eeffe0, #d4edbf);
 }
 
 .malts-header {
-  background: linear-gradient(in hsl, #bc8f6a, #f5e0a3);
+  background: linear-gradient(in hsl, #faeece, #fdb97d);
 }
 
 .yeasts-header {
-  background: linear-gradient(in hsl, #f9f4ea, #ffe5ad);
+  background: linear-gradient(in hsl, #f5e7c0, #f5e0a3);
 }
 
 .items {
@@ -31,4 +31,12 @@
 .shadow-top {
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1), 0px 0px 30px 30px rgba(255, 255, 255, 1);
   transition: opacity 0.5 ease;
+}
+
+.trash {
+  color: #c28282;
+}
+
+.save-gray {
+  color: #c4c4c4;
 }
