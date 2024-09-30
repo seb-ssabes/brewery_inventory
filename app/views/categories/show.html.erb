@@ -1,18 +1,14 @@
 <div class="relative">
-  <% if @category.name == "Hops" %>
-    <header class="hops-header p-6 flex items-center justify-between relative">
-      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
-  <% elsif @category.name == "Malts" %>
-    <header class="malts-header p-6 flex items-center justify-between relative">
-      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
-  <% else %>
-    <header class="yeasts-header p-6 flex items-center justify-between relative">
-      <h1 class="text-gray-800 text-3xl mx-auto mb-4 -mt-1"><%= @category.name %></h1>
-  <% end %>
+  <header class="<%= case @category.name
+                  when "Hops" then "hops-header"
+                  when "Malts" then "malts-header"
+                  else "yeasts-header"
+                 end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
+    <h1 class="text-gray-800 text-3xl mx-auto"><%= @category.name %></h1>
   </header>
 
 
-  <div class="items p-4 relative bg-white -mt-6 rounded-t-xl z-10">
+  <div class="items p-4 relative bg-white z-10 content-container">
     <div class="item">
       <% if @items.any? %>
         <ul class="flex flex-col gap-4">
@@ -40,17 +36,24 @@
 </div>
 
 
-<footer class="bg-white p-1 flex items-center justify-center fixed bottom-0 w-full shadow-top">
-    <%= link_to new_category_item_path(@category), class: "button" do %>
-      <%= image_tag case @category.name
-                    when 'Hops'
-                      asset_path('hop-new.png')
-                    when 'Malts'
-                      asset_path('malt-new.png')
-                    else
-                    asset_path('yeast-new.png')
-                    end,
-                    class: "mx-auto w-14" %>
-    <% end %>
-    <p class="text-xl ml-10 absolute right-6"><%= link_to "X", root_path, class: 'items-center justify-center' %></p>
+<footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top z-50 rounded-md w-1/2">
+    <div class="w-8"></div>
+    <div class="absolute left-1/2 transform -translate-x-1/2">
+      <%= link_to new_category_item_path(@category), class: "mx-auto" do %>
+        <%= image_tag case @category.name
+                      when 'Hops'
+                        asset_path('hop-new.png')
+                      when 'Malts'
+                        asset_path('malt-new.png')
+                      else
+                      asset_path('yeast-new.png')
+                      end,
+                      class: "mx-auto w-14" %>
+      <% end %>
+    </div>
+    <div class="ml-auto mr-1">
+      <%= link_to root_path, class: '' do %>
+        <%= image_tag asset_path('back.png'), class: 'w-8' %>
+      <% end %>
+    </div>
 </footer>

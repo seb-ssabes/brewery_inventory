@@ -12,6 +12,10 @@
   background: linear-gradient(in hsl, #f9f4ea, #ffe5ad);
 }
 
+.items {
+  margin-top: 74px;
+}
+
 .item-icon {
   width: 42px;
   height: auto;
@@ -25,5 +29,6 @@
 }
 
 .shadow-top {
-  box-shadow: 0 -2px 10px -3px rgba(0, 0, 0, 0.1), 0 -2px 6px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1), 0px 0px 30px 30px rgba(255, 255, 255, 1);
+  transition: opacity 0.5 ease;
 }
