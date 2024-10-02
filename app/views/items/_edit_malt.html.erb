@@ -87,9 +87,9 @@
     </div>
 
     <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
-      <div class="flex items-center w-full px-3">
+      <div class="flex items-center w-full pl-2 mb-0.5 -ml-3">
         <div class="actions">
-          <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl mb-2 mr-2' %>
+          <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl' %>
         </div>
       </div>
     </footer>
@@ -98,24 +98,15 @@
 
 
 <footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
-  <div class="w-8">
+  <div class="w-8 -mr-1">
     <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center" do %>
-      <i class="fa-solid fa-trash-can trash w-8 text-xl mt-0.5"></i>
+      <i class="fa-solid fa-trash-can trash w-8 text-xl mt-0.5 -ml-0.5"></i>
     <% end %>
   </div>
   <div class=""></div>
-  <div class="ml-auto ml-2">
+  <div class="-mr-0.5">
     <%= link_to category_path(2), class: '' do %>
       <%= image_tag asset_path('back.png'), class: 'w-8' %>
     <% end %>
   </div>
 </footer>
-
-<%# <footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full" style="z-index: 1;">
-  <div class="flex items-center justify-between w-full px-3">
-    <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center" do %>
-      <%# <i class="fa-solid fa-trash-can"></i> %>
-    <%# <% end %>
-    <%# <p><%= link_to "<-", category_path(2), class: 'items-center justify-center' %>
-  <%# </div>
-</footer> %>
