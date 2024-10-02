@@ -35,16 +35,21 @@ class ItemsController < ApplicationController
   end
 
   def update
+    Rails.logger.debug("Edit action triggered")
+    Rails.logger.debug("Item params: #{item_params.inspect}")
     if @item.update(item_params)
-      redirect_to edit_category_item_path(@category, @item), notice: "Item updated"
+      flash[:notice] = "Item updated"
+      redirect_to edit_category_item_path(@category, @item)
     else
+      Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
+      flash.now[:alert] = "Error"
       render :edit
     end
   end
 
   def destroy
     @item.destroy
-    redirect_to category_path(@category), notice: "Item destroyed"
+    redirect_to category_path(@category)
   end
 
   private

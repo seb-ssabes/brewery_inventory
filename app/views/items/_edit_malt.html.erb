@@ -93,13 +93,22 @@
       </div>
     </div>
   </footer>
+  
+  <% if @item.errors.any? %>
+    <div class="error-messages bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>
-
 
 
 <footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
   <div class="w-8 -mr-1">
-    <%= button_to category_item_path(@item.category, @item), method: :delete, data: { confirm: 'Are you sure?' }, class: "flex items-center justify-center" do %>
+    <%= button_to category_item_path(@item.category, @item), method: :delete, form: {data: { turbo_confirm: 'Are you sure?' }}, class: "flex items-center justify-center" do %>
       <i class="fa-solid fa-trash-can trash w-8 text-xl mt-0.5 -ml-0.5"></i>
     <% end %>
   </div>
