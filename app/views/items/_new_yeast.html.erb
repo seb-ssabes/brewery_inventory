@@ -1,27 +1,27 @@
 <%= form_with(model: [@category, @item], local: true) do |form| %>
 
-  <header class="bg-gray-100 p-5 flex items-center justify-center relative">
-    <div class="field font-bold">
-      <%= form.text_field :name, placeholder: 'Yeast name', required: true, class: "text-3xl border-none bg-gray-100 text-center" %>
+  <header class="yeasts-header p-5 flex items-center justify-between z-50 top-0 left-0 w-full -my-2">
+    <div class="">
+      <%= form.text_field :name, placeholder: 'Yeast name', required: true, class: "text-gray-800 border-transparent focus:border-transparent focus:ring-transparent text-3xl border-none bg-transparent text-center w-full" %>
     </div>
   </header>
 
-  <div class="container p-6">
+  <div class="container p-4 relative bg-white z-10 content-container text-lg">
     <div class="grid grid-cols-2 gap-4">
-      <div class="rows-span-2">
+      <div class="rows-span-2 relative">
         <%= form.label :quantity, class: 'block' %>
-        <%= form.number_field :quantity, placeholder: '0', required: true, class: 'w-full text-4xl font-semibold rounded-md border-gray-300 py-11' %>
+        <%= form.number_field :quantity, placeholder: '0', required: true, class: 'w-full text-4xl font-semibold rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 py-11' %>
       </div>
 
-      <div class="grid grid-rows-2 gap-4 rows-span-1">
+      <div class="grid grid-rows-2 gap-3 rows-span-1">
         <div class="mb-1.5">
           <%= form.label :price, 'Price (sachet ~11g)', class: 'block' %>
-          <%= form.number_field :price, placeholder: '$0', required: true, class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :price, placeholder: '$0', required: true, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
 
         <div class="field">
           <%= form.label :attenuation, class: 'block' %>
-          <%= form.number_field :attenuation, step: 0.01, min: 60, max: 85, required: true, placeholder: '%', class: 'w-full rounded-md border-gray-300 p-2' %>
+          <%= form.number_field :attenuation, step: 0.01, min: 60, max: 85, required: true, placeholder: '%', class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
       </div>
     </div>
@@ -29,12 +29,12 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :origin, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 p-2" %>
+        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
     </div>
 
@@ -61,28 +61,31 @@
 
     <div class="mt-4">
       <%= form.label :date, 'Expiring date' %>
-      <%= form.date_field :date, class: "w-full rounded-md border-gray-300 p-2" %>
+      <%= form.date_field :date, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
     </div>
 
     <div class="col-span-2 mt-4">
       <%= form.label :notes %>
-      <%= form.text_area :notes, placeholder: '-', rows: 4, class: "w-full rounded-md border-gray-300 p-3" %>
+      <%= form.text_area :notes, placeholder: '-', rows: 4, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-3" %>
     </div>
   </div>
 
-  <footer class="bg-gray-100 pb-3 flex items-center justify-center fixed bottom-0 mx-40" style="z-index: 10;">
-    <div class="flex items-center w-full px-3">
+  <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
+    <div class="flex items-center w-full pl-2 mb-0.5 -ml-3">
       <div class="actions">
-        <%= form.submit 'SAVE', class: '' %>
+        <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl' %>
       </div>
     </div>
   </footer>
 
 <% end %>
 
-<footer class="bg-gray-100 p-3 flex items-center justify-center fixed bottom-0 w-full" style="z-index: 1;">
-  <div class="flex items-center justify-between w-full px-3">
-    <div></div>
-    <p class="ml-auto"><%= link_to "<-", category_path(3), class: 'items-center justify-center' %></p>
+<footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
+  <div class="w-8 -mr-1"></div>
+  <div class=""></div>
+  <div class="-mr-0.5">
+    <%= link_to category_path(3), class: '' do %>
+      <%= image_tag asset_path('back.png'), class: 'w-8' %>
+    <% end %>
   </div>
 </footer>

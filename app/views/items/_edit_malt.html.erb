@@ -1,100 +1,100 @@
 <%= form_with(model: [@category, @item], local: true) do |form| %>
-  <div class="relative">
-    <header class="malts-header p-5 flex items-center justify-between z-50 w-full -my-2">
-      <div class="">
-        <%= form.text_field :name, placeholder: "Malt name", class: "text-gray-800 border-transparent focus:border-transparent focus:ring-transparent text-3xl border-none bg-transparent text-center w-full" %>
-      </div>
-    </header>
 
-    <div class="container p-4 relative bg-white text-lg">
-      <div class="grid grid-cols-2 gap-4">
-        <div class="rows-span-2 relative">
-          <%= form.label :quantity, class: 'block' %>
+  <header class="malts-header p-5 flex items-center justify-between z-50 w-full -my-2">
+    <div class="">
+      <%= form.text_field :name, placeholder: "Malt name", class: "text-gray-800 border-transparent focus:border-transparent focus:ring-transparent text-3xl border-none bg-transparent text-center w-full" %>
+    </div>
+  </header>
+
+  <div class="container p-4 relative bg-white text-lg">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rows-span-2 relative">
+        <%= form.label :quantity, class: 'block' %>
+        <div class="flex items-center">
+          <%= form.number_field :quantity, value: @item.quantity.to_i, step: 'any', placeholder: '0', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 py-11' %>
+          <div class="absolute right-3 pt-4 text-black">g</div>
+        </div>
+      </div>
+
+      <div class="grid grid-rows-2 gap-3 rows-span-1">
+        <div class="mb-1.5 relative">
+          <%= form.label :price, 'Price (1 kg)', class: 'block' %>
           <div class="flex items-center">
-            <%= form.number_field :quantity, value: @item.quantity.to_i, step: 'any', placeholder: '0', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 py-11' %>
-            <div class="absolute right-3 pt-4 text-black">g</div>
+            <div class="absolute left-2 text-black">$</div>
+            <%= form.number_field :price, placeholder: '0', value: @item.price.to_i, class: 'w-full pl-5 rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2', step: 'any', id: 'price_field' %>
           </div>
         </div>
 
-        <div class="grid grid-rows-2 gap-3 rows-span-1">
-          <div class="mb-1.5 relative">
-            <%= form.label :price, 'Price (1 kg)', class: 'block' %>
-            <div class="flex items-center">
-              <div class="absolute left-2 text-black">$</div>
-              <%= form.number_field :price, placeholder: '0', value: @item.price.to_i, class: 'w-full pl-5 rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2', step: 'any', id: 'price_field' %>
-            </div>
-          </div>
-
-          <div class="">
-            <%= form.label :potential, 'Potential (PPG)', class: 'block' %>
-            <%= form.number_field :potential, step: '0.1', value: @item.potential.to_i, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mt-4">
         <div class="">
-          <%= form.label :origin %>
-          <%= form.text_field :origin, placeholder: 'Enter origin country', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+          <%= form.label :potential, 'Potential (PPG)', class: 'block' %>
+          <%= form.number_field :potential, step: '0.1', value: @item.potential.to_i, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
-
-        <div class="">
-          <%= form.label :supplier %>
-          <%= form.text_field :supplier, placeholder: 'Enter supplier name', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mt-4">
-        <div class="">
-          <%= form.label :item_type, 'Form', class:'block' %>
-          <%= form.select :item_type,
-            options_for_select(['Grain', 'Sugar'], @item.item_type),
-            prompt: 'Select type',
-            class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
-                    focus:border-indigo-500 sm:text-sm !important'
-          %>
-        </div>
-        <div class="pr-2">
-          <%= form.label :item_category, 'Type', class:'block' %>
-          <%= form.select :item_category, options_for_select(['Base', 'Pilsner', 'Pale Ale', 'Mild Ale', 'Vienna', 'Munich',
-                                                              'Smoked', 'Carafa', 'Carapils',
-                                                              'Crystal', 'Caramel', 'Roasted', 'Amber',
-                                                              'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
-                                                              'Rye'], @item.item_category),
-                                                              prompt: 'Select malt category',
-                                                              class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
-                                                                      focus:border-indigo-500 sm:text-sm !important'
-          %>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mt-4">
-        <div class="">
-          <%= form.label :yield, 'Yield (%)', class: 'block' %>
-          <%= form.number_field :yield, step: 0.1, value: number_with_precision(@item.yield, precision: (@item.yield % 1 == 0 ? 0 : 1)), class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
-        </div>
-
-        <div class="">
-          <%= form.label :date, 'Expiring date' %>
-          <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
-        </div>
-      </div>
-
-      <div class="col-span-2 mt-4">
-        <%= form.label :notes %>
-        <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-3" %>
       </div>
     </div>
 
-    <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
-      <div class="flex items-center w-full pl-2 mb-0.5 -ml-3">
-        <div class="actions">
-          <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl' %>
-        </div>
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="">
+        <%= form.label :origin %>
+        <%= form.text_field :origin, placeholder: 'Enter origin country', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
-    </footer>
-  <% end %>
-</div>
+
+      <div class="">
+        <%= form.label :supplier %>
+        <%= form.text_field :supplier, placeholder: 'Enter supplier name', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="">
+        <%= form.label :item_type, 'Form', class:'block' %>
+        <%= form.select :item_type,
+          options_for_select(['Grain', 'Sugar'], @item.item_type),
+          prompt: 'Select type',
+          class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
+                  focus:border-indigo-500 sm:text-sm !important'
+        %>
+      </div>
+      <div class="pr-2">
+        <%= form.label :item_category, 'Type', class:'block' %>
+        <%= form.select :item_category, options_for_select(['Base', 'Pilsner', 'Pale Ale', 'Mild Ale', 'Vienna', 'Munich',
+                                                            'Smoked', 'Carafa', 'Carapils',
+                                                            'Crystal', 'Caramel', 'Roasted', 'Amber',
+                                                            'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
+                                                            'Rye'], @item.item_category),
+                                                            prompt: 'Select malt category',
+                                                            class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
+                                                                    focus:border-indigo-500 sm:text-sm !important'
+        %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="">
+        <%= form.label :yield, 'Yield (%)', class: 'block' %>
+        <%= form.number_field :yield, step: 0.1, value: number_with_precision(@item.yield, precision: (@item.yield % 1 == 0 ? 0 : 1)), class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
+      </div>
+
+      <div class="">
+        <%= form.label :date, 'Expiring date' %>
+        <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+      </div>
+    </div>
+
+    <div class="col-span-2 mt-4">
+      <%= form.label :notes %>
+      <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-3" %>
+    </div>
+  </div>
+
+  <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
+    <div class="flex items-center w-full pl-2 mb-0.5 -ml-3">
+      <div class="actions">
+        <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl' %>
+      </div>
+    </div>
+  </footer>
+<% end %>
+
 
 
 <footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
