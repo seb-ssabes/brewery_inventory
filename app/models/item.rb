@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   validates :potential, presence: true, numericality: {
     greater_than_or_equal_to: 1000,
     less_than_or_equal_to: 1045,
-    message: "range from 1% to 22%"
+    message: "range from 1000 to 1045"
   }, if: :malt_category?
 
   validates :yield, presence: true, numericality: {
