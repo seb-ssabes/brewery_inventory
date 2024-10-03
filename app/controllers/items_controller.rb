@@ -37,13 +37,18 @@ class ItemsController < ApplicationController
   def update
     Rails.logger.debug("Edit action triggered")
     Rails.logger.debug("Item params: #{item_params.inspect}")
-    if @item.update(item_params)
-      flash[:notice] = "Item updated"
-      redirect_to edit_category_item_path(@category, @item)
-    else
-      Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
-      flash.now[:alert] = "Error"
-      render :edit
+
+    respond_to do |format|
+      if @item.update(item_params)
+        flash[:notice] = "Item updated"
+        format.turbo_stream
+        format.html { redirect_to edit_category_item_path(@category, @item) }
+      else
+        Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
+        flash.now[:alert] = @item.errors.full_messages.to_sentence
+        format.turbo_stream
+        format.html { render :edit }
+      end
     end
   end
 

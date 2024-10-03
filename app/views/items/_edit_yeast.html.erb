@@ -80,6 +80,10 @@
   </footer>
 <% end %>
 
+<div id="flash">
+  <%= render 'item_flash' %>
+</div>
+
 <footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
   <div class="w-8 -mr-1">
     <%= button_to category_item_path(@item.category, @item), method: :delete, form: {data: { turbo_confirm: 'Are you sure?' }}, class: "flex items-center justify-center" do %>

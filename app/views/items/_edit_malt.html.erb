@@ -93,7 +93,7 @@
       </div>
     </div>
   </footer>
-  
+
   <% if @item.errors.any? %>
     <div class="error-messages bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
       <ul>
@@ -105,6 +105,9 @@
   <% end %>
 <% end %>
 
+<div id="flash">
+  <%= render 'item_flash' %>
+</div>
 
 <footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
   <div class="w-8 -mr-1">

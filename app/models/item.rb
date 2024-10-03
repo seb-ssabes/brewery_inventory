@@ -6,25 +6,25 @@ class Item < ApplicationRecord
   validates :alpha, presence: true, numericality: {
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 25,
-    message: "Alpha acids range from 1% to 22%"
+    message: "acids range from 1% to 22%"
   }, if: :hop_category?
 
   validates :potential, presence: true, numericality: {
     greater_than_or_equal_to: 1000,
     less_than_or_equal_to: 1045,
-    message: "Potential range from 1% to 22%"
+    message: "range from 1% to 22%"
   }, if: :malt_category?
 
   validates :yield, presence: true, numericality: {
     greater_than_or_equal_to: 60,
     less_than_or_equal_to: 85,
-    message: "Yiel range from 60% to 85%"
+    message: "range from 60% to 85%"
   }, if: :malt_category?
 
   validates :attenuation, presence: true, numericality: {
     greater_than_or_equal_to: 60,
     less_than_or_equal_to: 85,
-    message: "Attenuation range from 60% to 85%"
+    message: "range from 60% to 85%"
   }, if: :yeast_category?
 
   private
