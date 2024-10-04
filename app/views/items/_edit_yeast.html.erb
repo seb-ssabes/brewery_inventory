@@ -6,7 +6,7 @@
     </div>
   </header>
 
-  <div class="container p-4 relative bg-white z-10 content-container text-lg">
+  <div class="container p-4 relative bg-white z-10 content-container text-xl">
     <div class="grid grid-cols-2 gap-4">
       <div class="rows-span-2">
         <%= form.label :quantity, class: 'block' %>
@@ -15,7 +15,7 @@
 
       <div class="grid grid-rows-2 gap-3 rows-span-1">
         <div class="mb-1.5 relative">
-          <%= form.label :price, 'Price (sachet ~11g)', class: 'block' %>
+          <%= form.label :price, 'Price (sachet)', class: 'block' %>
           <div class="flex items-center">
             <div class="absolute left-2 text-black">$</div>
             <%= form.number_field :price, placeholder: '0', value: @item.price.to_i, class: 'w-full pl-5 rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2', id: 'price_field' %>

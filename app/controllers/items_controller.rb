@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
       end
     else
       Rails.logger.debug "Validation errors: #{@item.errors.full_messages.join(', ')}"
-
       render :new
     end
   end
@@ -35,18 +34,25 @@ class ItemsController < ApplicationController
   end
 
   def update
-    Rails.logger.debug("Edit action triggered")
-    Rails.logger.debug("Item params: #{item_params.inspect}")
+    if @item.update(item_params)
+      Rails.logger.debug("Flash Notice: #{flash[:notice]}")
 
-    respond_to do |format|
-      if @item.update(item_params)
-        flash[:notice] = "Item updated"
-        format.turbo_stream
-        format.html { redirect_to edit_category_item_path(@category, @item) }
-      else
-        Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
-        flash.now[:alert] = @item.errors.full_messages.to_sentence
-        format.turbo_stream
+      redirect_to case @item.category.name
+                  when 'Hops'
+                    category_path(1)
+                  when 'Malts'
+                    category_path(2)
+                  when 'Yeasts'
+                    category_path(3)
+                  else
+                    category_path(1)
+                  end
+      flash[:notice] = "Item updated"
+    else
+      Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
+      flash.now[:alert] = @item.errors.full_messages.to_sentence
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("flash", partial: "item_flash") }
         format.html { render :edit }
       end
     end
