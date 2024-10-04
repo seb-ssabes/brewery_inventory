@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       Rails.logger.debug("Flash Notice: #{flash[:notice]}")
+      flash[:notice] = "Item updated"
 
       redirect_to case @item.category.name
                   when 'Hops'
@@ -47,7 +48,6 @@ class ItemsController < ApplicationController
                   else
                     category_path(1)
                   end
-      flash[:notice] = "Item updated"
     else
       Rails.logger.error("Failed to update item: #{@item.errors.full_messages}")
       flash.now[:alert] = @item.errors.full_messages.to_sentence

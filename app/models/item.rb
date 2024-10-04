@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :category
 
+  validate :must_have_changes, on: :update
+
   validates :name, :quantity, :price, :origin, :supplier, presence: true
 
   validates :alpha, presence: true, numericality: {
@@ -39,5 +41,9 @@ class Item < ApplicationRecord
 
   def yeast_category?
     category_id == 3
+  end
+
+  def must_have_changes
+    errors.add(:base, "No changes detected") unless changed?
   end
 end
