@@ -13,17 +13,15 @@
       <% if @items.any? %>
         <ul class="flex flex-col gap-4 mb-16">
           <% @items.each do |item| %>
-            <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
-              <li>
-                <% if item.category.name == 'Hops' %>
-                  <%= render 'hops_index', item: item %>
-                <% elsif item.category.name == 'Malts' %>
-                  <%= render 'malts_index', item: item %>
-                <% elsif item.category.name == 'Yeasts' %>
-                  <%= render 'yeasts_index', item: item %>
-                <% end %>
-              </li>
-            <% end %>
+            <li>
+              <% if item.category.name == 'Hops' %>
+                <%= render 'hops_index', item: item %>
+              <% elsif item.category.name == 'Malts' %>
+                <%= render 'malts_index', item: item %>
+              <% elsif item.category.name == 'Yeasts' %>
+                <%= render 'yeasts_index', item: item %>
+              <% end %>
+            </li>
           <% end %>
         </ul>
       <% else %>
