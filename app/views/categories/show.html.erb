@@ -1,9 +1,9 @@
 <div class="relative">
   <header class="<%= case @category.name
-                  when "Hops" then "hops-header"
-                  when "Malts" then "malts-header"
-                  else "yeasts-header"
-                 end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
+                     when "Hops" then "hops-header"
+                     when "Malts" then "malts-header"
+                     else "yeasts-header"
+                     end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
     <h1 class="text-gray-800 text-3xl mx-auto"><%= @category.name %></h1>
   </header>
 
@@ -11,7 +11,7 @@
   <div class="items p-4 relative bg-white z-10 content-container">
     <div class="item">
       <% if @items.any? %>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-col gap-4 mb-16">
           <% @items.each do |item| %>
             <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
               <li>
