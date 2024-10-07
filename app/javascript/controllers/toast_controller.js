@@ -4,10 +4,12 @@ export default class extends Controller {
   static targets = ["notice"]
 
   connect() {
-    console.log("TOAST controller connected");
-    if (this.noticeTarget && this.noticeTarget.innerHTML.trim() !== "") {
-    this.showToast()
+    if (!this.hasNoticeTarget) {
+      console.log('No flash notice detected');
+      return;
     }
+    console.log("TOAST controller connected");
+    this.showToast();
   }
 
   showToast() {
