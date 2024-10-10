@@ -25,8 +25,8 @@ class Item < ApplicationRecord
 
   validates :attenuation, presence: true, numericality: {
     greater_than_or_equal_to: 60,
-    less_than_or_equal_to: 85,
-    message: "range from 60% to 85%"
+    less_than_or_equal_to: 90,
+    message: "range from 60% to 90%"
   }, if: :yeast_category?
 
   private

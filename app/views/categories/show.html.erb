@@ -41,9 +41,8 @@
   <% end %>
 </div>
 
-<footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md w-1/2">
-    <div class="w-8"></div>
-    <div class="absolute left-1/2 transform -translate-x-1/2">
+<footer class="bg-white p-2 flex items-center justify-center space-x-7 fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md w-1/2">
+    <div class="">
       <%= link_to new_category_item_path(@category), class: "mx-auto" do %>
         <%= image_tag case @category.name
                       when 'Hops'
@@ -56,9 +55,9 @@
                       class: "mx-auto w-14" %>
       <% end %>
     </div>
-    <div class="ml-auto mr-1">
+    <div class="">
       <%= link_to root_path, class: '' do %>
-        <%= image_tag asset_path('back.png'), class: 'w-8' %>
+        <%= image_tag asset_path('back.png'), class: 'w-10' %>
       <% end %>
     </div>
 </footer>

@@ -8,16 +8,24 @@
 
   <div class="container p-4 relative bg-white text-xl">
     <div class="grid grid-cols-2 gap-4">
-      <div class="rows-span-2 relative">
+
+      <div class="rows-span-2 relative flex flex-col justify-between" data-controller="quantity">
         <%= form.label :quantity, class: 'block' %>
-        <div class="flex items-center">
-          <%= form.number_field :quantity, value: @item.quantity.to_i, step: 'any', placeholder: '0', class: 'w-full text-4xl font-semibold rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 py-11' %>
-          <div class="absolute right-3 pt-4 text-black">g</div>
+        <div class="flex items-center justify-center mb-20">
+          <span id="current-quantity" data-quantity-target="quantityDisplay" class="text-3xl font-semibold"><%= @item.quantity.to_i %> g</span>
         </div>
+
+        <%= form.number_field :quantity, class: "hidden", id: "item_quantity_input", data: {quantity_target: "quantityInput"} %>
+
+        <div class="absolute inset-x-0 bottom-0 flex justify-between w-full">
+          <button type="button" data-action="click->quantity#decrease" class="text-2xl text-white px-4 py-2 w-1/2 rounded-bl-md focus:outline-none transition duration-300 m-2 minus-quantity-button">-</button>
+          <button type="button" data-action="click->quantity#increase" class="text-2xl text-white px-4 py-2 w-1/2 rounded-br-md focus:outline-none transition duration-300 m-2 plus-quantity-button">+</button>
+        </div>
+
       </div>
 
       <div class="grid grid-rows-2 gap-3 rows-span-1">
-        <div class="mb-1.5 relative">
+        <div class="mb-2 relative">
           <%= form.label :price, 'Price (1 kg)', class: 'block' %>
           <div class="flex items-center">
             <div class="absolute left-2 text-black">$</div>
@@ -86,7 +94,7 @@
   </div>
 
   <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
-    <div class="flex items-center w-full pl-2 mb-0.5 -ml-3">
+    <div class="flex items-center w-full pl-2 mb-0.5 -ml-2">
       <div class="actions">
         <%= form.submit 'SAVE', class: 'font-bold save-gray text-xl' %>
       </div>

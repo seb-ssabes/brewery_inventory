@@ -30,6 +30,6 @@ export default class extends Controller {
 
   updateQuantity(newQuantity) {
     this.quantityInputTarget.value = newQuantity;
-    this.quantityDisplayTarget.innerText = `${newQuantity}`
+    this.quantityDisplayTarget.innerText = `${newQuantity} g`
   }
 }
