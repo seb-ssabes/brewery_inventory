@@ -56,10 +56,10 @@
       <div class="">
         <%= form.label :item_type, 'Form', class:'block' %>
         <%= form.select :item_type,
-          options_for_select(['Grain', 'Sugar'], @item.item_type),
+          options_for_select(['Grain', 'Sugar'], @item.item_type), {},
           prompt: 'Select type',
           class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
-                  focus:border-indigo-500 sm:text-sm !important'
+                  focus:border-indigo-500 sm:text-sm appearance-none z-10'
         %>
       </div>
       <div class="pr-2">
@@ -68,8 +68,10 @@
                                                             'Smoked', 'Carafa', 'Carapils',
                                                             'Crystal', 'Caramel', 'Roasted', 'Amber',
                                                             'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
-                                                            'Rye'], @item.item_category),
-                                                            class: 'item-icon'
+                                                            'Rye'], @item.item_category), {},
+                                                            prompt: 'Select type',
+                                                            class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
+                                                                    focus:border-indigo-500 sm:text-sm appearance-none z-10'
         %>
 
       </div>

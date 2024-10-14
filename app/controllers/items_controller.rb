@@ -61,6 +61,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to category_path(@category)
+    flash[:notice] = "Item was successfully deleted"
   end
 
   private

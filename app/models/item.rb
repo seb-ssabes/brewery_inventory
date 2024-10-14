@@ -44,6 +44,9 @@ class Item < ApplicationRecord
   end
 
   def must_have_changes
-    errors.add(:base, "No changes detected") unless changed?
+    return unless persisted?
+    unless changed?
+      errors.add(:base, "No changes detected")
+    end
   end
 end
