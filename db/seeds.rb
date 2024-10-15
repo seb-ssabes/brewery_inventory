@@ -11,8 +11,8 @@ hop_category.items.create([
 ])
 
 malt_category.items.create([
-  { name: 'Pilsner Malt', quantity: 6500, unit: 'g', item_category: 'Base', price: 1430, origin: 'Belgium', item_type: 'Grain', date: Date.today, notes: '', supplier: 'Malt Masters Inc.', potential: 80, yield: 82 },
-  { name: 'Pale Ale Malt', quantity: 3900, unit: 'g', item_category: 'Caramel', price: 1850, origin: 'Chile', item_type: 'Grain', date: Date.today, notes: '', supplier: 'Malt Supply Co.', potential: 60, yield: 75 }
+  { name: 'Pilsner Malt', quantity: 6500, unit: 'g', item_category: 'Base', price: 1430, origin: 'Belgium', item_type: 'Grain', date: Date.today, notes: '', supplier: 'Malt Masters Inc.', potential: 1020, yield: 82 },
+  { name: 'Pale Ale Malt', quantity: 3900, unit: 'g', item_category: 'Caramel', price: 1850, origin: 'Chile', item_type: 'Grain', date: Date.today, notes: '', supplier: 'Malt Supply Co.', potential: 1030, yield: 75 }
 ])
 
 yeast_category.items.create([
