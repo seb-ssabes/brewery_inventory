@@ -20,4 +20,4 @@ yeast_category.items.create([
   { name: 'Safale US-05', quantity: 1, unit: 'sachet', price: 3.290, origin: 'France', item_type: 'Dry', date: Date.today, notes: '', supplier: 'Fermentis', attenuation: 81.0 }
 ])
 
-puts "#{Category.count} categories seeded and two items for each"
+puts "#{Category.count} categories and two items for each seeded"

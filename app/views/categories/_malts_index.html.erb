@@ -18,13 +18,13 @@
   <div class="absolute top-0 right-0 p-2 mt-0.5">
     <img src="<%= case item.item_category
                   when 'Pilsner', 'Base', 'Vienna', 'Mild Ale', 'Wheat', 'Carapils'
-                    asset_path('malt-low.png')
+                    cl_image_path("brewery_inventory/malt-low")
                   when 'Pale Ale', 'Munich', 'Smoked'
-                    asset_path('malt-medium-light.png')
+                    cl_image_path("brewery_inventory/malt-medium-light")
                   when 'Crystal', 'Caramel', 'Amber', 'Biscuit'
-                    asset_path('malt-medium-dark.png')
+                    cl_image_path("brewery_inventory/malt-medium-dark")
                   when 'Roasted', 'Brown', 'Black', 'Chocolate', 'Carafa', 'Rye'
-                    asset_path('malt-high.png')
+                    cl_image_path("brewery_inventory/malt-high")
                   end %>" alt="Malt" class="item-icon"/>
   </div>
 </div>

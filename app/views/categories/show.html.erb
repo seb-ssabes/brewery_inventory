@@ -46,18 +46,18 @@
       <%= link_to new_category_item_path(@category), class: "mx-auto" do %>
         <%= image_tag case @category.name
                       when 'Hops'
-                        asset_path('hop-new.png')
+                        cl_image_path("brewery_inventory/hop-new")
                       when 'Malts'
-                        asset_path('malt-new.png')
+                        cl_image_path("brewery_inventory/malt-new")
                       else
-                      asset_path('yeast-new.png')
+                        cl_image_path("brewery_inventory/yeast-new")
                       end,
                       class: "mx-auto w-14" %>
       <% end %>
     </div>
     <div class="">
       <%= link_to root_path, class: '' do %>
-        <%= image_tag asset_path('back.png'), class: 'w-10' %>
+        <%= image_tag cl_image_path("brewery_inventory/back"), class: 'w-10' %>
       <% end %>
     </div>
 </footer>

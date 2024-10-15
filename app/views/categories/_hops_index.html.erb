@@ -18,13 +18,13 @@
   <div class="absolute top-0 right-0 p-2">
     <img src="<%= case item.alpha
             when 1..5
-              asset_path('hop-low.png')
+              cl_image_path("brewery_inventory/hop-low")
             when 6..10
-              asset_path('hop-medium-light.png')
+              cl_image_path("brewery_inventory/hop-medium-light")
             when 11..15
-              asset_path('hop-medium-dark.png')
+              cl_image_path("brewery_inventory/hop-medium-dark")
             else
-              asset_path('hop-high.png')
+              cl_image_path("brewery_inventory/hop-high")
             end %>" alt="Hop" class="item-icon" />
   </div>
 </div>
