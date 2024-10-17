@@ -23,7 +23,7 @@ export default class extends Controller {
     }
     this.isTouching = true;
 
-    // event.preventDefault();
+    event.preventDefault();
 
     event.currentTarget.classList.add("item-card-active");
   }
@@ -40,6 +40,10 @@ export default class extends Controller {
     this.clearTouchFeedback(event);
 
     const card = event.currentTarget;
+    
+    setTimeout(() => {
+      window.location.href = card.dataset.url;
+    }, 100);
 
     if (this.navigating) {
       console.log("Already navigating, skipping");
@@ -50,7 +54,6 @@ export default class extends Controller {
   }
 
   clearTouchFeedback(event) {
-    clearTimeout(this.touchHoldTimeout);
     event.currentTarget.classList.remove("item-card-active");
     console.log("Removed active class and cleared timeout");
   }
