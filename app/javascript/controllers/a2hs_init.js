@@ -1,8 +1,6 @@
-import A2HS from "a2hs";
+import AddToHomeScreen from "a2hs";
 
-document.addEventListener("DOMContentLoaded", () => {
-  new A2HS();
-});
+AddToHomeScreen();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
