@@ -23,7 +23,7 @@ export default class extends Controller {
     }
     this.isTouching = true;
 
-    event.preventDefault();
+    // event.preventDefault();
 
     event.currentTarget.classList.add("item-card-active");
   }
@@ -40,7 +40,7 @@ export default class extends Controller {
     this.clearTouchFeedback(event);
 
     const card = event.currentTarget;
-    
+
     if (this.navigating) {
       console.log("Already navigating, skipping");
       return;
