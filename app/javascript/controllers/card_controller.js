@@ -6,7 +6,12 @@ export default class extends Controller {
   isTouching = false;
 
   connect() {
-    console.log("Card controller connected")
+    console.log("Card controller connected");
+
+    this.cardTargets.forEach(card => {
+      card.addEventListener('touchstart', this.touchstart.bind(this));
+      card.addEventListener('touchend', this.touchend.bind(this));
+    });
   }
 
   touchstart(event) {
@@ -35,6 +40,12 @@ export default class extends Controller {
     this.clearTouchFeedback(event);
 
     const card = event.currentTarget;
+    
+    if (this.navigating) {
+      console.log("Already navigating, skipping");
+      return;
+    }
+    this.navigating = true;
     window.location.href = card.dataset.url;
   }
 
