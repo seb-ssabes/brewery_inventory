@@ -3,7 +3,7 @@
                      when "Hops" then "hops-header"
                      when "Malts" then "malts-header"
                      else "yeasts-header"
-                     end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
+                     end %> p-5 flex items-center justify-between fixed top-0 left-0 w-full">
     <h1 class="text-gray-800 text-3xl mx-auto"><%= @category.name %></h1>
   </header>
 
@@ -41,7 +41,7 @@
   <% end %>
 </div>
 
-<footer class="bg-white p-2 flex items-center justify-center space-x-7 fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md w-1/2">
+<footer class="bg-white p-2 flex items-center justify-center space-x-7 fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top rounded-md w-1/2">
     <div class="">
       <%= link_to new_category_item_path(@category), class: "mx-auto" do %>
         <%= image_tag case @category.name
