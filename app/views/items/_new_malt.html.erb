@@ -45,7 +45,7 @@
       <div class="">
         <%= form.label :item_type, 'Form', class:'block' %>
         <%= form.select :item_type,
-          options_for_select(['Grain', 'Sugar'], @item.item_type),
+          options_for_select(['Grain', 'Sugar'], @item.item_type), {},
           prompt: '-',
           class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
                   focus:border-indigo-500 sm:text-sm !important',
@@ -58,7 +58,7 @@
                                                             'Smoked', 'Carafa', 'Carapils',
                                                             'Crystal', 'Caramel', 'Roasted', 'Amber',
                                                             'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
-                                                            'Rye'], @item.item_category),
+                                                            'Rye'], @item.item_category), {},
                                                             prompt: '-',
                                                             class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
                                                                     focus:border-indigo-500 sm:text-sm !important',

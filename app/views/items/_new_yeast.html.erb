@@ -41,10 +41,10 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :form, 'Form', class: 'block' %>
-        <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form),
+        <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form), {},
                                prompt: '-',
-                              #  class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                              #         focus:border-indigo-500 sm:text-sm !important',
+                               class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
+                                      focus:border-indigo-500 sm:text-sm !important',
                                required: true
         %>
       </div>

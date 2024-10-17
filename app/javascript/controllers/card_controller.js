@@ -29,7 +29,8 @@ export default class extends Controller {
   }
 
   touchend(event) {
-    console.log("touchend")
+    console.log("touchend");
+    event.stopPropagation();
 
     if (!this.isTouching) {
       console.log("No valid touch to end");
@@ -40,7 +41,7 @@ export default class extends Controller {
     this.clearTouchFeedback(event);
 
     const card = event.currentTarget;
-    
+
     setTimeout(() => {
       window.location.href = card.dataset.url;
     }, 100);

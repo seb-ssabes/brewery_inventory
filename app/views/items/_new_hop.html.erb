@@ -45,7 +45,7 @@
         <%= form.label :item_type, 'Type', class: "block font-medium text-gray-700 text-lg" %>
         <div class="relative mt-1 !important">
           <%= form.select :item_type,
-            options_for_select(['Pellet', 'Whole'], @item.item_type),
+            options_for_select(['Pellet', 'Whole'], @item.item_type), {},
             prompt: 'Select type',
             class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
                     focus:border-indigo-500 sm:text-sm !important',
