@@ -1,6 +1,6 @@
 <div class="flex flex-col p-4 rounded-lg border-2 relative"
      data-controller="card"
-     data-action="touchstart->card#touchstart touchend->card#touchend"
+     data-action="click->card#handleClick"
      data-url="<%= edit_category_item_path(@category, item)%>">
   <div class="item-card-title text-xl">
     <h2><%= item.name %></h2>
