@@ -13,7 +13,9 @@
       <% if @items.any? %>
         <ul class="flex flex-col gap-4 mb-16">
           <% @items.each do |item| %>
-            <li>
+            <li data-controller="card"
+                data-action="click->card#handleClick"
+                data-url="<%= edit_category_item_path(@category, item)%>">
               <% if item.category.name == 'Hops' %>
                 <%= render 'hops_index', item: item %>
               <% elsif item.category.name == 'Malts' %>
