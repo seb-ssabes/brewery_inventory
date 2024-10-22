@@ -12,6 +12,8 @@ export default class extends Controller {
 
     event.currentTarget.classList.add("item-card-active");
 
+    console.log("Redirecting...")
+
     window.location.href = event.currentTarget.dataset.url;
   }
 }

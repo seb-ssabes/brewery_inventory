@@ -50,7 +50,7 @@
       </div>
       <div class="">
         <%= form.label :item_type, 'Type', class: 'block' %>
-        <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type),
+        <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type), {},
                                     prompt: '-',
                                     class: 'form-select block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
                                             focus:border-indigo-500 sm:text-sm !important',

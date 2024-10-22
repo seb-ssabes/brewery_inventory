@@ -8,18 +8,23 @@ body {
 
 .inventory-header {
   background: linear-gradient(in hsl, #f2f2f2, #d4d4d4);
+  background: -webkit-linear-gradient(in hsl, #f2f2f2, #d4d4d4);
+
 }
 
 .hops-header {
   background: linear-gradient(in hsl, #eeffe0, #d4edbf);
+  background: -webkit-linear-gradient(in hsl, #eeffe0, #d4edbf);
 }
 
 .malts-header {
   background: linear-gradient(in hsl, #faeece, #fdb97d);
+  background: -webkit-linear-gradient(in hsl, #faeece, #fdb97d)
 }
 
 .yeasts-header {
   background: linear-gradient(in hsl, #f5e7c0, #f5e0a3);
+  background: -webkit-linear-gradient(in hsl, #f5e7c0, #f5e0a3);
 }
 
 .items {
@@ -37,7 +42,8 @@ body {
   box-shadow: inset 0 0 4px rgba(144, 144, 144, 0.5);
   background: linear-gradient(to right, #f1f1f1, #ffffff);
   transform: scale(1.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
+  -webkit-transition: transform 0.5s ease;
 }
 
 .form-select {
