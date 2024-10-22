@@ -7,7 +7,9 @@
     <% @categories.each do |category| %>
       <%= link_to category_path(category), class: 'block' do %>
         <li class="flex items-center justify-between p-6 shadow-md border-2 rounded-lg space-x-6"
->
+            data-controller="card"
+            data-action="click->card#handleClick"
+            data-url="<%= category_path(category) %>">
           <div class="icon flex justify-center flex-shrink-0 w-1/4 text-4xl ml-7">
             <% if category.name == 'Hops' %>
               <img src= "<%= cl_image_path("brewery_inventory/hop-medium-light") %>">
