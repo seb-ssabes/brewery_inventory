@@ -35,7 +35,7 @@
 
         <div class="">
           <%= form.label :potential, 'Potential (PPG)', class: 'block' %>
-          <%= form.number_field :potential, step: '0.1', value: @item.potential.to_i, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
+          <%= form.number_field :potential, step: '0.1', value: @item.potential.present? ? @item.potential.to_i : nil, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :yield, 'Yield (%)', class: 'block' %>
-        <%= form.number_field :yield, step: 0.1, value: number_with_precision(@item.yield, precision: (@item.yield % 1 == 0 ? 0 : 1)), class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
+        <%= form.number_field :yield, step: 0.1, value: @item.yield.present? ? number_with_precision(@item.yield, precision: (@item.yield % 1 == 0 ? 0 : 1)) : nil, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
       </div>
 
       <div class="">

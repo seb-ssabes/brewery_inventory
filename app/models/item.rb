@@ -11,22 +11,25 @@ class Item < ApplicationRecord
     message: "acids range from 1% to 22%"
   }, if: :hop_category?
 
-  validates :potential, presence: true, numericality: {
+  validates :potential, numericality: {
     greater_than_or_equal_to: 1000,
     less_than_or_equal_to: 1045,
-    message: "range from 1000 to 1045"
+    message: "range from 1000 to 1045",
+    allow_nil: true
   }, if: :malt_category?
 
-  validates :yield, presence: true, numericality: {
+  validates :yield, numericality: {
     greater_than_or_equal_to: 60,
     less_than_or_equal_to: 85,
-    message: "range from 60% to 85%"
+    message: "range from 60% to 85%",
+    allow_nil: true
   }, if: :malt_category?
 
-  validates :attenuation, presence: true, numericality: {
+  validates :attenuation, numericality: {
     greater_than_or_equal_to: 60,
     less_than_or_equal_to: 90,
-    message: "range from 60% to 90%"
+    message: "range from 60% to 90%",
+    allow_nil: true
   }, if: :yeast_category?
 
   private

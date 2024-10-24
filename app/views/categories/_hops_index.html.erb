@@ -7,7 +7,9 @@
       <p><%= number_with_precision(item.alpha, precision: (item.alpha % 1 == 0 ? 0 : 1))%>%</p>
     </div>
     <div>-</div>
-    <div><p><%= item.item_type %></p></div>
+    <div>
+      <p><%= number_with_delimiter(number_with_precision(item.quantity, precision: (item.quantity % 1 == 0 ? 0 : 1)), delimiter: ".") %>g</p>
+    </div>
     <div>-</div>
     <div><p><%= item.origin %></p></div>
   </div>

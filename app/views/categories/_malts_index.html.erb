@@ -7,8 +7,7 @@
   </div>
   <div class="item-card-data flex flex-row gap-2 text-gray-400">
     <div>
-      <p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %></p>
-    </div>
+      <p><%= number_with_delimiter(number_with_precision(item.quantity, precision: (item.quantity % 1 == 0 ? 0 : 1)), delimiter: ".") %>g</p>    </div>
     <div>-</div>
     <div><p><%= item.supplier %></p></div>
     <div>-</div>

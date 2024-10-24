@@ -24,7 +24,7 @@
 
         <div class="field">
           <%= form.label :attenuation, 'Attenuation (%)',class: 'block' %>
-          <%= form.number_field :attenuation, step: 0.01, value: number_with_precision(@item.attenuation, precision: (@item.attenuation % 1 == 0 ? 0 : 1)), placeholder: 'Enter Attenuation', class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
+          <%= form.number_field :attenuation, step: 0.01, value: @item.attenuation.present? ? number_with_precision(@item.attenuation, precision: (@item.attenuation % 1 == 0 ? 0 : 1)) : nil, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
       </div>
     </div>

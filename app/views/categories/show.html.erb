@@ -12,7 +12,7 @@
     <div class="item">
       <% if @items.any? %>
         <ul class="flex flex-col gap-4 mb-16">
-          <% @items.each do |item| %>
+          <% @items.sort_by { |item| -item.quantity }.each do |item| %>
             <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
               <li data-controller="card"
                   data-action="click->card#handleClick"
