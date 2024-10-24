@@ -7,10 +7,10 @@
   </div>
   <div class="item-card-data flex flex-row gap-2 text-gray-400">
     <div>
-      <p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %> PPG</p>
+      <p><%= ActiveSupport::NumberHelper.number_to_delimited(item.potential.to_i, delimiter: '.') %></p>
     </div>
     <div>-</div>
-    <div><p><%= item.item_category %></p></div>
+    <div><p><%= item.supplier %></p></div>
     <div>-</div>
     <div><p><%= item.origin %></p></div>
   </div>
