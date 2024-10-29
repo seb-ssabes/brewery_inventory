@@ -71,3 +71,7 @@ gem "tailwindcss-rails", "~> 2.7"
 gem 'font-awesome-sass', '~> 6.5', '>= 6.5.2'
 
 gem 'cloudinary', '~> 2.2'
+
+gem 'pg', '~> 1.2'
+
+gem 'dotenv-rails', '~> 3.1.4'
