@@ -8,7 +8,7 @@ The app also features a visual indicator for brewing items. In the index view, c
 
 - **Tailwind CSS**: for styling.
 - **JavaScript**: to handle quantity updates, animations, and effects.
-- A single-user setup with an **SQLite** database.
+- An **PostgreSQL** database set up supported by **rapidapp.io**.
 - A **Progressive Web App (PWA)** that integrates **a2hs.js** to allow my brother to add the app to his mobile home screen for a seamless mobile experience.
 
 Overall, the Home Brewing Inventory App is tailored to my brother's brewing needs, ensuring simplicity and functionality while keeping it adaptable for future updates.
