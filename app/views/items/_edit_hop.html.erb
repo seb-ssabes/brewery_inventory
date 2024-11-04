@@ -55,7 +55,7 @@
 
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div>
-        <%= form.label :item_type, 'Type', class: "block text-lg" %>
+        <%= form.label :item_type, 'Type' %>
         <div class="relative mt-1 !important focus:border-gray-600 focus:ring-gray-500">
           <%= form.select :item_type,
             options_for_select(['Pellet', 'Whole'], @item.item_type), {},
@@ -66,8 +66,8 @@
       </div>
 
       <div class="">
-        <%= form.label :date, 'Expiring date' %>
-        <%= form.date_field :date, value: Date.today, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.label :date, 'Best Before' %>
+        <%= form.date_field :date, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
     </div>
 
