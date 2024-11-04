@@ -36,20 +36,19 @@
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.text_field :supplier, placeholder: '-', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
     </div>
 
     <div class="grid grid-cols-2 gap-4 mt-4 text-lg">
       <div>
-        <%= form.label :item_type, 'Type', class: "block font-medium text-gray-700 text-lg" %>
-        <div class="relative mt-1 !important">
+        <%= form.label :item_type, 'Type' %>
+        <div class="relative">
           <%= form.select :item_type,
             options_for_select(['Pellet', 'Whole'], @item.item_type), {},
             prompt: 'Select type',
-            class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                    focus:border-indigo-500 sm:text-sm !important',
-            required: true
+            required: true,
+            class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2'
           %>
         </div>
       </div>

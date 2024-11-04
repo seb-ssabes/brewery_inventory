@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
   validate :must_have_changes, on: :update
 
-  validates :name, :quantity, :price, :origin, :supplier, presence: true
+  validates :name, :quantity, :price, :origin, presence: true
 
   validates :alpha, presence: true, numericality: {
     greater_than_or_equal_to: 0,

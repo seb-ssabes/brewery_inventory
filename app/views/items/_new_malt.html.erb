@@ -54,7 +54,7 @@
                                                       class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
       </div>
       <div class="pr-2">
-        <%= form.label :item_category, 'Type', class:'block' %>
+        <%= form.label :item_category, 'Type' %>
         <%= form.select :item_category, options_for_select(['Base', 'Pilsner', 'Pale Ale', 'Mild Ale', 'Vienna', 'Munich',
                                                             'Smoked', 'Carafa', 'Carapils',
                                                             'Crystal', 'Caramel', 'Roasted', 'Amber',
@@ -68,7 +68,7 @@
 
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="field">
-        <%= form.label :yield, class: 'block' %>
+        <%= form.label :yield, 'Extract fine' %>
         <%= form.number_field :yield, placeholder: '%', required: true, step: 0.1, min: 60, max: 85, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
       </div>
 
