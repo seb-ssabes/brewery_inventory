@@ -43,7 +43,11 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, placeholder: 'Enter origin country', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.select :origin,
+                  options_for_select(['Belgium', 'USA', 'England', 'Germany'], @item.origin), {},
+                  prompt: '-',
+                  required: true,
+                  class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
 
       <div class="">
@@ -58,8 +62,8 @@
         <%= form.select :item_type,
           options_for_select(['Grain', 'Sugar'], @item.item_type), {},
           prompt: 'Select type',
-          class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
-                  focus:border-indigo-500 sm:text-sm appearance-none z-10'
+          required: true,
+          class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base z-10'
         %>
       </div>
       <div class="pr-2">
@@ -70,8 +74,8 @@
                                                             'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
                                                             'Rye'], @item.item_category), {},
                                                             prompt: 'Select type',
-                                                            class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base focus:ring-indigo-500
-                                                                    focus:border-indigo-500 sm:text-sm appearance-none z-10'
+                                                            required: true,
+                                                            class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base sm:text-sm appearance-none z-10'
         %>
 
       </div>

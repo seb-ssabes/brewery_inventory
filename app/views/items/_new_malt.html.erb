@@ -32,7 +32,11 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, required: true, placeholder: '-', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.select :origin,
+          options_for_select(['Belgium', 'USA', 'England', 'Germany'], @item.origin), {},
+          prompt: '-',
+          required: true,
+          class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
       </div>
 
       <div class="">
@@ -44,13 +48,10 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :item_type, 'Form', class:'block' %>
-        <%= form.select :item_type,
-          options_for_select(['Grain', 'Sugar'], @item.item_type), {},
-          prompt: '-',
-          class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                  focus:border-indigo-500 sm:text-sm !important',
-          required: true
-        %>
+        <%= form.select :item_type, options_for_select(['Grain', 'Sugar'], @item.item_type), {},
+                                                      prompt: '-',
+                                                      required: true,
+                                                      class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
       </div>
       <div class="pr-2">
         <%= form.label :item_category, 'Type', class:'block' %>
@@ -60,10 +61,8 @@
                                                             'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
                                                             'Rye'], @item.item_category), {},
                                                             prompt: '-',
-                                                            class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                                                                    focus:border-indigo-500 sm:text-sm !important',
-                                                            required: true
-        %>
+                                                            required: true,
+                                                            class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
       </div>
     </div>
 
