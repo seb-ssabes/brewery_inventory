@@ -41,7 +41,12 @@
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: '-', required: true, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.select :supplier,
+          options_for_select(['Patagonia', 'Weyermann', 'Castle Malting', 'The Swaen', 'Best Malz'], @item.supplier), {},
+          placeholder: '-',
+          required: true,
+          class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2"
+          %>
       </div>
     </div>
 
@@ -55,11 +60,7 @@
       </div>
       <div class="pr-2">
         <%= form.label :item_category, 'Type' %>
-        <%= form.select :item_category, options_for_select(['Base', 'Pilsner', 'Pale Ale', 'Mild Ale', 'Vienna', 'Munich',
-                                                            'Smoked', 'Carafa', 'Carapils',
-                                                            'Crystal', 'Caramel', 'Roasted', 'Amber',
-                                                            'Biscuit', 'Brown', 'Black', 'Chocolate', 'Wheat',
-                                                            'Rye'], @item.item_category), {},
+        <%= form.select :item_category, options_for_select(['Base', 'Specialty'], @item.item_category), {},
                                                             prompt: '-',
                                                             required: true,
                                                             class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>

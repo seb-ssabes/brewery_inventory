@@ -4,14 +4,24 @@
                      when "Malts" then "malts-header"
                      else "yeasts-header"
                      end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
-    <h1 class="text-gray-800 text-3xl mx-auto"><%= @category.name %></h1>
+    <div class="flex-1"></div>
+    <h1 class="text-gray-800 flex-grow text-center text-3xl mx-auto"><%= @category.name %></h1>
+    <div class="flex justify-end">
+      <label class="inline-flex items-center me-1 cursor-pointer">
+        <span class="ms-3 text-sm font-medium text-gray-400 dark:text-gray-300 mr-3"></span>
+        <input type="checkbox" value="" class="sr-only peer" checked>
+        <div class="relative w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-400 dark:peer-focus:ring-gray-400 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-gray-500"></div>
+        <span class="ms-3 text-sm font-medium text-gray-400 dark:text-gray-300"></span>
+      </label>
+    </div>
   </header>
 
 
   <div class="items p-4 relative bg-white z-10 content-container">
     <div class="item">
       <% if @items.any? %>
-        <ul class="flex flex-col gap-4 mb-16">
+        <ul class="flex flex-col gap-4 mb-16" data-controller="sort"
+                                              data-action="toggle->sort#handleSort">
           <% @items.sort_by { |item| -item.quantity }.each do |item| %>
             <%= link_to edit_category_item_path(@category, item), class: 'block' do %>
               <li data-controller="card"

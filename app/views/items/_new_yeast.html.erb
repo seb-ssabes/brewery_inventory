@@ -43,8 +43,7 @@
         <%= form.label :form, 'Form', class: 'block' %>
         <%= form.select :form, options_for_select(['Dry', 'Liquid', 'Culture', 'Slurry'], @item.form), {},
                                prompt: '-',
-                               class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                                      focus:border-indigo-500 sm:text-sm !important',
+                               class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base sm:text-sm',
                                required: true
         %>
       </div>
@@ -52,8 +51,7 @@
         <%= form.label :item_type, 'Type', class: 'block' %>
         <%= form.select :item_type, options_for_select(['Ale', 'Lager', 'Hybrid', 'Wheat', 'Wine', 'Champagne', 'Other'], @item.item_type), {},
                                     prompt: '-',
-                                    class: 'block w-full rounded-md border-gray-300 p-2 text-base focus:ring-indigo-500
-                                            focus:border-indigo-500 sm:text-sm !important',
+                                    class: 'block w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2 text-base sm:text-sm',
                                     required: true
         %>
       </div>
