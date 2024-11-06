@@ -44,7 +44,11 @@
     <div class="grid grid-cols-2 gap-4 mt-4">
       <div class="">
         <%= form.label :origin %>
-        <%= form.text_field :origin, placeholder: 'Enter origin country', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
+        <%= form.select :origin,
+            options_for_select(['USA', 'Germany', 'Australia', 'Belgium', 'England', 'CZE'], @item.origin), {},
+            placeholder: '-',
+            class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2"
+            %>
       </div>
 
       <div class="">

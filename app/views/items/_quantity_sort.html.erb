@@ -1,0 +1,15 @@
+<% items.sort_by { |item| -item.quantity }.each do |item| %>
+  <%= link_to edit_category_item_path(category, item), class: 'block' do %>
+    <li data-controller="card"
+        data-action="click->card#handleClick"
+        data-url="<%= edit_category_item_path(category, item)%>">
+      <% if item.category.name == 'Hops' %>
+        <%= render 'hops_index', item: item %>
+      <% elsif item.category.name == 'Malts' %>
+        <%= render 'malts_index', item: item %>
+      <% elsif item.category.name == 'Yeasts' %>
+        <%= render 'yeasts_index', item: item %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>

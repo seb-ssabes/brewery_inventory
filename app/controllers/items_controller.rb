@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_category
+  before_action :set_category, except: [:toggle_sort]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @category = Category.find(params[:category_id])
@@ -62,6 +62,23 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to category_path(@category)
     flash[:notice] = "Item was successfully deleted"
+  end
+
+  def toggle_sort
+    @sort_by = params[:sort_by]
+    @items = Item.all
+    @category = Category.find(params[:category_id]) if params[:category_id].present?
+
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          'items_list',
+          partial: @sort_by == 'quantity' ? 'items/quantity_sort' : 'items/origin_sort',
+          locals: { items: @items, category: @category }
+        )
+      end
+    end
   end
 
   private
