@@ -11,13 +11,6 @@ class Item < ApplicationRecord
     message: "acids range from 1% to 22%"
   }, if: :hop_category?
 
-  validates :potential, numericality: {
-    greater_than_or_equal_to: 1000,
-    less_than_or_equal_to: 1045,
-    message: "range from 1000 to 1045",
-    allow_nil: true
-  }, if: :malt_category?
-
   validates :yield, numericality: {
     greater_than_or_equal_to: 60,
     less_than_or_equal_to: 85,

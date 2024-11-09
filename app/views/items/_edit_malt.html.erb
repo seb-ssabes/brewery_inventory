@@ -34,7 +34,7 @@
         </div>
 
         <div class="">
-          <%= form.label :potential, 'Potential (PPG)', class: 'block' %>
+          <%= form.label :potential, 'EBC', class: 'block' %>
           <%= form.number_field :potential, step: '0.1', value: @item.potential.present? ? @item.potential.to_i : nil, class: 'w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2' %>
         </div>
       </div>

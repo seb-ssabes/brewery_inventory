@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    collection do
-      get :toggle_sort
-    end
+    get :toggle_sort, on: :collection
   end
 end

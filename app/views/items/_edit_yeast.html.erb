@@ -37,8 +37,11 @@
 
       <div class="">
         <%= form.label :supplier %>
-        <%= form.text_field :supplier, placeholder: 'Enter supplier name', class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
-      </div>
+        <%= form.select :supplier,
+            options_for_select(['Fermentis', 'Lallemand', 'Pinnacle'], @item.supplier), {},
+            placeholder: '-',
+            required: true,
+            class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>      </div>
     </div>
 
     <div class="grid grid-cols-2 gap-4 mt-4">

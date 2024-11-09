@@ -1,0 +1,27 @@
+<% sorted_items = if @sort_by == 'quantity' %>
+                      <% items.sort_by { |item| item.origin } %>
+                  <% else %>
+                    <% items.sort_by do |item| %>
+                      <% if item.category.name == 'Malts' && item.name.downcase.include?('claro')
+                          [1, -item.quantity]
+                        else
+                          [0, -item.quantity]
+                        end %>
+                    <% end %>
+                  <% end %>
+
+<% sorted_items.each do |item| %>
+  <li data-controller="card"
+      data-action="click->card#handleClick"
+      data-url="<%= edit_category_item_path(category, item) %>">
+    <%= link_to edit_category_item_path(category, item), class: 'block' do %>
+      <% if item.category.name == 'Hops' %>
+        <%= render 'categories/hops_index', item: item %>
+      <% elsif item.category.name == 'Malts' %>
+        <%= render 'categories/malts_index', item: item %>
+      <% elsif item.category.name == 'Yeasts' %>
+        <%= render 'categories/yeasts_index', item: item %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>

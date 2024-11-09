@@ -15,15 +15,18 @@
   </div>
 
   <div class="absolute top-0 right-0 p-2 mt-0.5">
-    <img src="<%= case item.item_category
-                  when 'Pilsner', 'Base', 'Vienna', 'Mild Ale', 'Wheat', 'Carapils'
+    <img src="<%= case
+                  when item.name.downcase.include?('pilsner'), item.name.downcase.include?('base'), item.name.downcase.include?('vienna'), item.name.downcase.include?('mild ale'), item.name.downcase.include?('wheat'), item.name.downcase.include?('carapils')
                     cl_image_path("brewery_inventory/malt-low")
-                  when 'Pale Ale', 'Munich', 'Smoked'
+                  when item.name.downcase.include?('pale ale'), item.name.downcase.include?('munich'), item.name.downcase.include?('smoked'), item.name.downcase.include?('cara 50')
                     cl_image_path("brewery_inventory/malt-medium-light")
-                  when 'Crystal', 'Caramel', 'Amber', 'Biscuit'
+                  when item.name.downcase.include?('crystal'), item.name.downcase.include?('caramel'), item.name.downcase.include?('amber'), item.name.downcase.include?('biscuit'), item.name.downcase.include?('caraaroma')
                     cl_image_path("brewery_inventory/malt-medium-dark")
-                  when 'Roasted', 'Brown', 'Black', 'Chocolate', 'Carafa', 'Rye'
+                  when item.name.downcase.include?('roasted'), item.name.downcase.include?('brown'), item.name.downcase.include?('black'), item.name.downcase.include?('chocolate'), item.name.downcase.include?('carafa'), item.name.downcase.include?('rye')
                     cl_image_path("brewery_inventory/malt-high")
-                  end %>" alt="Malt" class="item-icon"/>
+                  else
+                    cl_image_path("brewery_inventory/malt-medium-light")
+                  end %>"
+        alt="Malt" class="item-icon"/>
   </div>
 </div>

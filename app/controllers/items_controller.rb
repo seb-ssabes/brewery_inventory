@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @category = Category.find(params[:category_id])
+    @sort_by = params[:sort_by] || 'quantity'
     @items = @category.items
   end
 
@@ -65,20 +66,11 @@ class ItemsController < ApplicationController
   end
 
   def toggle_sort
-    @sort_by = params[:sort_by]
-    @items = Item.all
-    @category = Category.find(params[:category_id]) if params[:category_id].present?
+    @category = Category.find(params[:category_id])
+    @items = @category.items
+    @sort_by = params[:sort_by] || "quantity"
 
-
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'items_list',
-          partial: @sort_by == 'quantity' ? 'items/quantity_sort' : 'items/origin_sort',
-          locals: { items: @items, category: @category }
-        )
-      end
-    end
+    render partial: "items/item_list", locals: { items: @items, category: @category, sort_by: @sort_by }
   end
 
   private
