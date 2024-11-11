@@ -75,3 +75,5 @@ gem 'cloudinary', '~> 2.2'
 gem 'pg', '~> 1.2'
 
 gem 'dotenv-rails', '~> 3.1.4'
+
+gem 'csv'

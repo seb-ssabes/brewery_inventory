@@ -38,7 +38,7 @@ export default class extends Controller {
 
         this.listTarget.classList.remove("opacity-0");
         this.listTarget.classList.add("opacity-100");
-      }, 400);
+      }, 300);
     })
   }
 }
