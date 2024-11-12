@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'categories#index'
   get 'hops/search', to: 'hops#index'
   get 'hops/api_search', to: 'hops#api_search'
+  get 'hops/api_detail', to: 'hops#api_detail'
+
 
   resources :categories, only: [:index, :show] do
     resources :items
