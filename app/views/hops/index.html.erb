@@ -10,3 +10,12 @@
       data-search-target="suggestions" id="hopSuggestions">
   </ul>
 </form>
+
+<footer class="bg-white p-5 flex items-center justify-between fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
+  <div class=""></div>
+  <div class="-mr-0.5">
+    <%= link_to category_path(1), class: '' do %>
+      <%= image_tag cl_image_path("brewery_inventory/back"), class: 'w-8' %>
+    <% end %>
+  </div>
+</footer>
