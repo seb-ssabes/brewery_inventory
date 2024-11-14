@@ -38,7 +38,7 @@ export default class extends Controller {
     }
 
     const html = hops.map((hop, index) => `
-        <li class="suggestion-item opacity-0 transform -translate-y-2"
+        <li class="suggestion-item mt-2 opacity-0 transform -translate-y-2"
             style="animation-delay: ${index * 50}ms" data-hop-name="${hop.name}">
           <span class="name">${hop.name}</span>
         </li>
