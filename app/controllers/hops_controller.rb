@@ -1,10 +1,6 @@
 class HopsController < ApplicationController
   before_action :load_hops, only: [:api_detail]
 
-  # def index
-
-  # end
-
   def api_search
     if params[:query].present?
       query = params[:query].downcase
