@@ -74,3 +74,55 @@ body {
   list-style: none;
   padding-left: 0;
 }
+
+.hidden {
+  display: none;
+}
+
+.opacity-0 {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.opacity-100 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fade-out-container {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.suggestionsTarget.fade-out-container {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  transform: translateY(-50px);
+}
+
+.suggestion-item {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.suggestion-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.suggestion-item.fade-out {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+// input:focus {
+//   border: none !important;
+// }

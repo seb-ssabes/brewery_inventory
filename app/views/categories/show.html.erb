@@ -4,7 +4,8 @@
                      when "Malts" then "malts-header"
                      else "yeasts-header"
                      end %> p-5 flex items-center justify-between z-50 fixed top-0 left-0 w-full">
-    <div class="flex-1"></div>
+    <div class="flex-1">
+    </div>
     <h1 class="text-gray-800 flex-grow text-center text-3xl mx-auto"><%= @category.name %></h1>
     <div class="flex justify-end">
       <label class="inline-flex items-center me-1 cursor-pointer">
@@ -44,23 +45,8 @@
   <% end %>
 </div>
 
-<footer class="bg-white p-2 flex items-center justify-center space-x-7 fixed bottom-0 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md w-1/2">
-    <div class="">
-      <%= link_to new_category_item_path(@category), class: "mx-auto" do %>
-        <%= image_tag case @category.name
-                      when 'Hops'
-                        cl_image_path("brewery_inventory/hop-new")
-                      when 'Malts'
-                        cl_image_path("brewery_inventory/malt-new")
-                      else
-                        cl_image_path("brewery_inventory/yeast-new")
-                      end,
-                      class: "mx-auto w-14" %>
-      <% end %>
-    </div>
-    <div class="">
-      <%= link_to root_path, class: '' do %>
-        <%= image_tag cl_image_path("brewery_inventory/back"), class: 'w-10' %>
-      <% end %>
-    </div>
-</footer>
+<% if @category.name == "Hops" %>
+  <%= render 'hops_footer'  %>
+<% else %>
+  <%= render 'malts_yeasts_footer' %>
+<% end %>
