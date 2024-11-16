@@ -89,6 +89,18 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
+.fade-in-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fade-out-container {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
 .suggestionsTarget.fade-out-container {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -111,6 +123,6 @@ body {
   transform: translateY(-50px);
 }
 
-input:focus {
-  border: none !important;
-}
+// input:focus {
+//   border: none !important;
+// }

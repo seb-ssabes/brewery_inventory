@@ -7,9 +7,10 @@
   <input type="text" id="hopSearch" placeholder="Hop name"
          data-search-action="input->search#searchInput"
          data-search-target="input"
-         class="w-full px-4 mt-1 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2
-          focus:ring-gray-400 transition duration-200" />
-  <ul class="suggestions hidden bg-white rounded-md shadow-sm
+         autocomplete="off"
+         class="w-full px-4 mt-1 py-2 border border-gray-300 rounded-md focus:ring-3
+          focus:ring-gray-500 focus:border-gray-600 transition duration-200" />
+  <ul class="suggestions hidden bg-white mt-2 rounded-md shadow-sm text-lg
              overflow-hidden transition-opacity ease-in-out"
       data-search-target="suggestions" id="hopSuggestions">
   </ul>

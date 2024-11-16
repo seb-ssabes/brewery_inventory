@@ -64,6 +64,8 @@ export default class extends Controller {
 
     const hopName = hopElement.getAttribute("data-hop-name");
 
+    this.inputTarget.value = ""
+
     fetch(`/hops/api_detail?name=${encodeURIComponent(hopName)}`, {
       headers: {
         "Content-Type": "application/json",
@@ -82,8 +84,6 @@ export default class extends Controller {
     const items = this.suggestionsTarget.querySelectorAll('.suggestion-item');
 
     if (items.length === 0) return;
-
-    this.suggestionsTarget.classList.add("fade-out-container")
 
     items.forEach((item) => {
       item.classList.remove("fade-in");
