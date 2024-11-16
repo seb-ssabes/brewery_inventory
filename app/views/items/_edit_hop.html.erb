@@ -79,6 +79,19 @@
       <%= form.label :notes %>
       <%= form.text_area :notes, placeholder: 'Enter additional notes', rows: 4, class: "w-full rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-3" %>
     </div>
+
+    <div class="substitutes mt-4 mb-24">
+      <h3 class="text-lg">Substitutes</h3>
+      <% if @substitutes.any? %>
+        <ul class="list-inside">
+          <% @substitutes.each do |substitute| %>
+            <li class="text-gray-600 text-base py-2 border-b border-gray-300 last:border-b-0"><%= substitute %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p class="text-gray-500 text-base">No substitutes found for this hop.</p>
+      <% end %>
+    </div>
   </div>
 
   <footer class="pb-3 flex items-center justify-center fixed bottom-0 mx-40 z-50">
