@@ -1,5 +1,5 @@
 class HopsController < ApplicationController
-  before_action :load_hops, only: [:api_detail]
+  before_action :load_hops
 
   def api_search
     # if
@@ -11,13 +11,14 @@ class HopsController < ApplicationController
       query = params[:query].to_s.downcase
       Rails.logger.info "Search query (downcased): #{query.downcase}"
 
+      matched_hops = @hops.select { |hop| hop.name.to_s.strip.downcase.include?(query) }
 
-      @hops = Hop.where('name ILIKE ?', "%#{query}%")
+      # @hops = Hop.where('name ILIKE ?', "%#{query}%")
 
       Rails.logger.info "Hops found: #{@hops.pluck(:name)}"
 
 
-      hops_data = @hops.map do |hop|
+      hops_data = matched_hops.map do |hop|
         { name: hop.name }
       end
 
