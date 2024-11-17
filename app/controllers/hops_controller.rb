@@ -1,6 +1,16 @@
 class HopsController < ApplicationController
   before_action :load_hops
 
+  def index
+    @hops = Hop.load_hops_data
+    Rails.logger.info "All hops loaded: #{@hops.map { |hop| hop[:name] }}"
+
+    # Optional: Print each hop data like in the `edit` method
+    @hops.each do |hop|
+      Rails.logger.info "Hop: #{hop[:name]}, Aroma: #{hop[:aroma]}, Alpha: #{hop[:alpha]}, Type: #{hop[:hop_type]}, Substitutes: #{hop[:substitutes]}"
+    end
+  end
+
   def api_search
     # if
       response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
