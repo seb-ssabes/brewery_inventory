@@ -11,7 +11,7 @@ class HopsController < ApplicationController
       query = params[:query].to_s.downcase
       Rails.logger.info "Search query: #{query}"
 
-      @hops = Hop.where('lower(name) LIKE ?', "#{query}%")
+      @hops = Hop.where('name ILIKE ?', "%#{query}%")
       Rails.logger.info "Hops found: #{@hops.pluck(:name)}"
 
 
