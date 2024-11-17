@@ -8,6 +8,9 @@ class HopsController < ApplicationController
       response.headers["Expires"] = "0"
 
       # params[:query].present?
+      Rails.logger.info "Total hops loaded: #{@hops.size}"
+      Rails.logger.info "Hops list: #{@hops.map(&:name).inspect}"
+
       query = params[:query].to_s.downcase
       Rails.logger.info "Search query (downcased): #{query.downcase}"
 
