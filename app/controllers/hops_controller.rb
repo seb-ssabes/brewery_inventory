@@ -12,33 +12,29 @@ class HopsController < ApplicationController
   end
 
   def api_search
-    # if
+    if params[:query].present?
       response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
       response.headers["Pragma"] = "no-cache"
       response.headers["Expires"] = "0"
-
-      # params[:query].present?
+      @hops = Hop.load_hops_data
       Rails.logger.info "Total hops loaded: #{@hops.size}"
-      Rails.logger.info "Hops list: #{@hops.map(&:name).inspect}"
+      Rails.logger.info "Hops list: #{@hops.map { |hop| hop[:name] }.inspect}"
 
       query = params[:query].to_s.downcase
       Rails.logger.info "Search query (downcased): #{query.downcase}"
 
-      matched_hops = @hops.select { |hop| hop.name.to_s.strip.downcase.include?(query) }
+      matched_hops = @hops.select { |hop| hop[:name].to_s.strip.downcase.starts_with?(query) }
 
-      # @hops = Hop.where('name ILIKE ?', "%#{query}%")
-
-      Rails.logger.info "Hops found: #{@hops.pluck(:name)}"
-
+      Rails.logger.info "Matched hops: #{matched_hops.map { |hop| hop[:name] }}"
 
       hops_data = matched_hops.map do |hop|
-        { name: hop.name }
+        { name: hop[:name] }
       end
 
       render json: hops_data, status: :ok
-    # else
-    #   render json: [], status: :ok
-    # end
+    else
+      render json: [], status: :ok
+    end
   end
 
   def api_detail
