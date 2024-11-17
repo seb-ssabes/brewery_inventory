@@ -18,7 +18,8 @@ export default class extends Controller {
       return;
     }
 
-    fetch(`/hops/api_search?query=${encodeURIComponent(query)}`, {
+    const timestamp = new Date().getTime();
+    fetch(`/hops/api_search?query=${encodeURIComponent(query)}&t=${timestamp}`, {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
