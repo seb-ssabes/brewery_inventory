@@ -42,17 +42,21 @@ class HopsController < ApplicationController
     Rails.logger.info "Hops list: #{@hops.map(&:name).inspect}"
     # Retrieve the name parameter from the request (e.g., api_detail?name=Cascade).
     hop_name = params[:name].to_s.strip.downcase
+    @hops = Hop.load_hops_data
+    Rails.logger.info "Looking up hop: #{hop_name}"
 
-    selected_hop = @hops.find { |hop| hop.name&.strip&.downcase == hop_name }
+
+    selected_hop = @hops.find { |hop| hop[:name]&.strip&.downcase == hop_name }
 
     if selected_hop
       hop_data = {
-        name: selected_hop.name,
-        aroma: selected_hop.aroma,
-        alpha: selected_hop.alpha,
-        hop_type: selected_hop.hop_type,
-        substitutes: selected_hop.substitutes
+        name: selected_hop[:name],
+        aroma: selected_hop[:aroma],
+        alpha: selected_hop[:alpha],
+        hop_type: selected_hop[:hop_type],
+        substitutes: selected_hop[:substitutes]
       }
+      Rails.logger.info "Hop data found: #{hop_data.inspect}"
       render json: hop_data, status: :ok
     else
       render json: { error: "Hop not found" }, status: :not_found
