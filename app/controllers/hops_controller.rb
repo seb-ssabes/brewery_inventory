@@ -3,9 +3,12 @@ class HopsController < ApplicationController
 
   def api_search
     if params[:query].present?
-      query = params[:query].downcase
+      query = params[:query].to_s.downcase
+      Rails.logger.info "Search query: #{query}"
 
       @hops = Hop.where('lower(name) LIKE ?', "#{query}%")
+      Rails.logger.info "Hops found: #{@hops.pluck(:name)}"
+
 
       hops_data = @hops.map do |hop|
         { name: hop.name }
