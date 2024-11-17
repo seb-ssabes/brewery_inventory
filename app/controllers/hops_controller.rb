@@ -2,7 +2,12 @@ class HopsController < ApplicationController
   before_action :load_hops, only: [:api_detail]
 
   def api_search
-    if params[:query].present?
+    # if
+      response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+      response.headers["Pragma"] = "no-cache"
+      response.headers["Expires"] = "0"
+
+      # params[:query].present?
       query = params[:query].to_s.downcase
       Rails.logger.info "Search query: #{query}"
 
@@ -15,9 +20,9 @@ class HopsController < ApplicationController
       end
 
       render json: hops_data, status: :ok
-    else
-      render json: [], status: :ok
-    end
+    # else
+    #   render json: [], status: :ok
+    # end
   end
 
   def api_detail
