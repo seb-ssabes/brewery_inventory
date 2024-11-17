@@ -6,6 +6,7 @@ export default class extends Controller {
   connect() {
     this.inputTarget.addEventListener('keyup', this.searchInput.bind(this));
     this.suggestionsTarget.addEventListener('click', this.selectSuggestion.bind(this))
+    console.log("Search controller connected")
   }
 
   searchInput() {

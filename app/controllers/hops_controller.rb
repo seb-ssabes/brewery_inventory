@@ -9,9 +9,11 @@ class HopsController < ApplicationController
 
       # params[:query].present?
       query = params[:query].to_s.downcase
-      Rails.logger.info "Search query: #{query}"
+      Rails.logger.info "Search query (downcased): #{query.downcase}"
+
 
       @hops = Hop.where('name ILIKE ?', "%#{query}%")
+
       Rails.logger.info "Hops found: #{@hops.pluck(:name)}"
 
 
