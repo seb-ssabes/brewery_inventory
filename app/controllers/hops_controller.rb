@@ -32,6 +32,8 @@ class HopsController < ApplicationController
   end
 
   def api_detail
+    Rails.logger.info "Total hops loaded: #{@hops.size}"
+    Rails.logger.info "Hops list: #{@hops.map(&:name).inspect}"
     # Retrieve the name parameter from the request (e.g., api_detail?name=Cascade).
     hop_name = params[:name].to_s.strip.downcase
 
