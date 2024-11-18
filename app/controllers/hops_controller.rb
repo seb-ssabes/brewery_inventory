@@ -3,29 +3,23 @@ class HopsController < ApplicationController
 
   def index
     @hops = Hop.load_hops_data
-    Rails.logger.info "All hops loaded: #{@hops.map { |hop| hop[:name] }}"
-
-    # Optional: Print each hop data like in the `edit` method
-    @hops.each do |hop|
-      Rails.logger.info "Hop: #{hop[:name]}, Aroma: #{hop[:aroma]}, Alpha: #{hop[:alpha]}, Type: #{hop[:hop_type]}, Substitutes: #{hop[:substitutes]}"
-    end
+    # Rails.logger.info "All hops loaded: #{@hops.map { |hop| hop[:name] }}"
   end
 
   def api_search
     if params[:query].present?
-      response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-      response.headers["Pragma"] = "no-cache"
-      response.headers["Expires"] = "0"
+      # response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+      # response.headers["Pragma"] = "no-cache"
+      # response.headers["Expires"] = "0"
       @hops = Hop.load_hops_data
       Rails.logger.info "Total hops loaded: #{@hops.size}"
-      Rails.logger.info "Hops list: #{@hops.map { |hop| hop[:name] }.inspect}"
 
       query = params[:query].to_s.downcase
-      Rails.logger.info "Search query (downcased): #{query.downcase}"
+      # Rails.logger.info "Search query (downcased): #{query.downcase}"
 
       matched_hops = @hops.select { |hop| hop[:name].to_s.strip.downcase.starts_with?(query) }
 
-      Rails.logger.info "Matched hops: #{matched_hops.map { |hop| hop[:name] }}"
+      # Rails.logger.info "Matched hops: #{matched_hops.map { |hop| hop[:name] }}"
 
       hops_data = matched_hops.map do |hop|
         { name: hop[:name] }
@@ -38,13 +32,8 @@ class HopsController < ApplicationController
   end
 
   def api_detail
-    Rails.logger.info "Total hops loaded: #{@hops.size}"
-    Rails.logger.info "Hops list: #{@hops.map(&:name).inspect}"
-    # Retrieve the name parameter from the request (e.g., api_detail?name=Cascade).
     hop_name = params[:name].to_s.strip.downcase
     @hops = Hop.load_hops_data
-    Rails.logger.info "Looking up hop: #{hop_name}"
-
 
     selected_hop = @hops.find { |hop| hop[:name]&.strip&.downcase == hop_name }
 
@@ -56,7 +45,6 @@ class HopsController < ApplicationController
         hop_type: selected_hop[:hop_type],
         substitutes: selected_hop[:substitutes]
       }
-      Rails.logger.info "Hop data found: #{hop_data.inspect}"
       render json: hop_data, status: :ok
     else
       render json: { error: "Hop not found" }, status: :not_found
