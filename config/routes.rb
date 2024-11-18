@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'categories#index'
+  root 'home#index'
 
+  get 'calculators/index', to: 'calculators#index'
   get 'calculators/abv', to: 'calculators#abv'
   get 'calculators/density_correction', to: 'calculators#density_correction'
   post 'calculators/calculate_abv', to: 'calculators#calculate_abv'

@@ -1,4 +1,7 @@
 class CalculatorsController < ApplicationController
+  def index
+  end
+
   def abv
   end
 
