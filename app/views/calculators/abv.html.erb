@@ -1,0 +1,13 @@
+<h2>ABV Calculator</h2>
+<%= form_with url: calculators_calculate_abv_path, local: true, id: "abv-form", data: {controller: "abv", action: "submit->abv#calculateAbv" } do %>
+  <div>
+    <%= label_tag :og, "Original Gravity (OG)"%>
+    <%= number_field :og, nil, step: 0.001, required: true, data: {abv_target: "og"} %>
+  </div>
+  <div>
+    <%= label_tag :fg, "Final Gravity (FG)"%>
+    <%= number_field :fg, nil, step: 0.001, required: true, data: {abv_target: "fg"} %>
+  </div>
+  <%= submit_tag "Calculate ABV"  %>
+  <p data-abv-target="abv_result"></p>
+<% end %>

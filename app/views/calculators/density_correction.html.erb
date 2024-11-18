@@ -1,0 +1,17 @@
+<h2>Density Correction Calculator</h2>
+<%= form_with url: calculators_calculate_density_correction_path, local: true, id: "density-form", data: {controller: "density", action: "submit->density#correctDensity" } do %>
+  <div>
+    <%= label_tag :measured_density, "Measured Density" %>
+    <%= number_field :measured_density, nil, step: 0.001, required: true, data: {density_target: "measured_density"} %>
+  </div>
+  <div>
+    <%= label_tag :current_temp, "Current Temperature (°C):"%>
+    <%= number_field :current_temp, nil, step: 0.001, required: true, data: {density_target: "current_temp"} %>
+  </div>
+    <div>
+    <%= label_tag :densimeter_temp, "Densimeter Temperature (°C):"%>
+    <%= number_field :densimeter_temp, nil, step: 0.001, required: true, data: {density_target: "densimeter_temp"} %>
+  </div>
+  <%= submit_tag "Correct Density"  %>
+  <p data-density-target="corrected_density"></p>
+<% end %>
