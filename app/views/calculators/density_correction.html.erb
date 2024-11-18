@@ -1,17 +1,30 @@
-<h2>Density Correction Calculator</h2>
-<%= form_with url: calculators_calculate_density_correction_path, local: true, id: "density-form", data: {controller: "density", action: "submit->density#correctDensity" } do %>
-  <div>
-    <%= label_tag :measured_density, "Measured Density" %>
-    <%= number_field :measured_density, nil, step: 0.001, required: true, data: {density_target: "measured_density"} %>
-  </div>
-  <div>
-    <%= label_tag :current_temp, "Current Temperature (°C):"%>
-    <%= number_field :current_temp, nil, step: 0.001, required: true, data: {density_target: "current_temp"} %>
-  </div>
+<header class="calculator-header p-5 flex items-center justify-between z-50 top-0 left-0 w-full">
+  <h1 class="text-gray-800 text-3xl mx-auto">Density correction</h1>
+</header>
+
+<div class="flex flex-1 flex-col p-5">
+  <%= form_with url: calculators_calculate_density_correction_path, local: true, id: "density-form", data: {controller: "density", action: "submit->density#correctDensity" } do %>
     <div>
-    <%= label_tag :densimeter_temp, "Densimeter Temperature (°C):"%>
-    <%= number_field :densimeter_temp, nil, step: 0.001, required: true, data: {density_target: "densimeter_temp"} %>
+      <%= label_tag :measured_density, "Measured Density" %>
+      <%= number_field :measured_density, nil, step: 0.001, required: true, data: {density_target: "measured_density"} %>
+    </div>
+    <div>
+      <%= label_tag :current_temp, "Current Temperature (°C):"%>
+      <%= number_field :current_temp, nil, step: 0.001, required: true, data: {density_target: "current_temp"} %>
+    </div>
+      <div>
+      <%= label_tag :densimeter_temp, "Densimeter Temperature (°C):"%>
+      <%= number_field :densimeter_temp, nil, step: 0.001, required: true, data: {density_target: "densimeter_temp"} %>
+    </div>
+    <%= submit_tag "Correct Density"  %>
+    <p data-density-target="corrected_density"></p>
+  <% end %>
+</div>
+
+<footer class="bg-white p-2 flex items-center justify-center fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
+  <div class="self-center">
+    <%= link_to calculators_index_path, class: '' do %>
+      <%= image_tag cl_image_path("brewery_inventory/back"), class: 'w-14' %>
+    <% end %>
   </div>
-  <%= submit_tag "Correct Density"  %>
-  <p data-density-target="corrected_density"></p>
-<% end %>
+</footer>
