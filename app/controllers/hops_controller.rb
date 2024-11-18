@@ -3,19 +3,14 @@ class HopsController < ApplicationController
 
   def index
     @hops = Hop.load_hops_data
-    # Rails.logger.info "All hops loaded: #{@hops.map { |hop| hop[:name] }}"
   end
 
   def api_search
     if params[:query].present?
-      # response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-      # response.headers["Pragma"] = "no-cache"
-      # response.headers["Expires"] = "0"
       @hops = Hop.load_hops_data
       Rails.logger.info "Total hops loaded: #{@hops.size}"
 
       query = params[:query].to_s.downcase
-      # Rails.logger.info "Search query (downcased): #{query.downcase}"
 
       matched_hops = @hops.select { |hop| hop[:name].to_s.strip.downcase.starts_with?(query) }
 
