@@ -9,7 +9,7 @@ export default class extends Controller {
 
   correctDensity(event) {
     event.preventDefault();
-    const measured_density = parseFloat(this.measured_densityTarget.value).toFixed(3);
+    const measured_density = parseFloat(this.measured_densityTarget.value);
     const current_temp = parseFloat(this.current_tempTarget.value);
     const densimeter_temp = parseFloat(this.densimeter_tempTarget.value);
 
@@ -36,6 +36,7 @@ export default class extends Controller {
       .then((response) => response.json())
       .then((data) => {
         this.corrected_densityTarget.textContent = `${data.corrected_density}`;
+        
         this.corrected_densityTarget.classList.remove("hidden");
 
         this.corrected_densityTarget.classList.add("slide-up");

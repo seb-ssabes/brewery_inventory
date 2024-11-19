@@ -17,7 +17,7 @@ class CalculatorsController < ApplicationController
   end
 
   def calculate_density_correction
-    measured_density = params[:measured_density].to_f.round(3)
+    measured_density = params[:measured_density]
     current_temp = params[:current_temp].to_f
     densimeter_temp = params[:densimeter_temp].to_f
 
