@@ -14,13 +14,13 @@
           <h3 class="text-2xl">ABV</h3>
         </div>
         <div class="icon flex justify-center w-30">
-          <i class="fa-solid fa-percent text-4xl mr-2"></i>
+          <i class="fa-solid fa-percent text-5xl mr-4 text-gray-500"></i>
         </div>
       </li>
     <% end %>
 
     <%= link_to calculators_index_path, class: 'block' do %>
-      <li class="flex items-center justify-between px-6 py-14 shadow-md border-2 rounded-lg space-x-6"
+      <li class="flex items-center justify-between px-6 py-12 shadow-md border-2 rounded-lg space-x-6"
           data-controller="card"
           data-action="click->card#handleClick"
           data-url="<%= calculators_density_correction_path %>">
@@ -28,7 +28,7 @@
           <h3 class="text-2xl">Density correction</h3>
         </div>
         <div class="icon flex justify-center w-30">
-          <i class="fa-solid fa-vial-circle-check text-4xl"></i>
+          <i class="fa-solid fa-vial-circle-check text-5xl text-gray-500 mr-2"></i>
         </div>
       </li>
     <% end %>
