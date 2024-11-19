@@ -1,5 +1,5 @@
 <header class="inventory-header p-5 flex items-center justify-between z-50 top-0 left-0 w-full">
-  <h1 class="text-gray-800 text-3xl mx-auto">-Inventory-</h1>
+  <h1 class="text-gray-800 text-3xl mx-auto">Inventory</h1>
 </header>
 
 <div class="flex flex-1 flex-col p-5">
@@ -28,3 +28,11 @@
     <% end %>
   </ul>
 </div>
+
+<footer class="bg-white p-2 flex items-center justify-center fixed bottom-0 w-1/2 left-1/2 transform -translate-x-1/2 shadow-top z-10 rounded-md">
+  <div class="self-center">
+    <%= link_to root_path, class: '' do %>
+      <%= image_tag cl_image_path("brewery_inventory/back"), class: 'w-14' %>
+    <% end %>
+  </div>
+</footer>
