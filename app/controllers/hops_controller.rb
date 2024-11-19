@@ -29,7 +29,6 @@ class HopsController < ApplicationController
   def api_detail
     hop_name = params[:name].to_s.strip.downcase
     @hops = Hop.load_hops_data
-    Rails.logger.info "Looking up hop: #{hop_name}"
 
     selected_hop = @hops.find { |hop| hop[:name]&.strip&.downcase == hop_name }
 
