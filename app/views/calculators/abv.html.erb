@@ -1,19 +1,30 @@
 <header class="calculator-header p-5 flex items-center justify-between z-50 top-0 left-0 w-full">
-  <h1 class="text-gray-800 text-3xl mx-auto">ABV</h1>
+  <h1 class="text-gray-800 text-3xl mx-auto">Alcohol By Volume</h1>
 </header>
 
-<div class="flex flex-1 flex-col p-5">
-  <%= form_with url: calculators_calculate_abv_path, local: true, id: "abv-form", data: {controller: "abv", action: "submit->abv#calculateAbv" } do %>
-    <div>
-      <%= label_tag :og, "Original Gravity (OG)"%>
-      <%= number_field :og, nil, step: 0.001, required: true, data: {abv_target: "og"} %>
+<div class="flex flex-1 flex-col p-8 min-h-500">
+  <%= form_with url: calculators_calculate_abv_path, local: true, id: "abv-form",
+                class:"border-4 rounded-2xl border-gray-100 pt-10 pb-20",
+                data: {controller: "abv", action: "submit->abv#calculateAbv" } do %>
+    <div class="flex flex-col space-y-2 mb-8">
+      <%= label_tag :og, "Original Gravity (OG)", class:"text-xl text-center self-center" %>
+      <%= number_field :og, nil, step: 0.001, required: true, data: {abv_target: "og"},
+                       class:"w-52 self-center rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
     </div>
-    <div>
-      <%= label_tag :fg, "Final Gravity (FG)"%>
-      <%= number_field :fg, nil, step: 0.001, required: true, data: {abv_target: "fg"} %>
+    <div class="flex flex-col space-y-2 mb-8">
+      <%= label_tag :fg, "Final Gravity (FG)", class:"text-xl text-center self-cente" %>
+      <%= number_field :fg, nil, step: 0.001, required: true, data: {abv_target: "fg"},
+                       class:"w-52 self-center rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
     </div>
-    <%= submit_tag "Calculate"  %>
-    <p data-abv-target="abv_result"></p>
+    <div class="flex justify-center mb-10">
+      <%= submit_tag "Calculate", class:"self-center border border-gray-800 rounded-lg text-lg px-5 py-2.5
+                                       text-center me-2 mb-2 transition-all ease-in-out",
+                                  data: {abv_target:"abvCalculate"} %>
+    </div>
+    <div class="flex flex-row items-center justify-center space-x-2">
+      <p class="hidden text-gray-600 font-semibold text-3xl" data-abv-target="abv_title"></p>
+      <p class="hidden text-gray-600 font-semibold text-3xl" data-abv-target="abv_result"></p>
+    </div>
   <% end %>
 </div>
 
