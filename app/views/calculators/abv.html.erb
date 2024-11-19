@@ -12,7 +12,7 @@
                        class:"w-52 self-center rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
     </div>
     <div class="flex flex-col space-y-2 mb-8">
-      <%= label_tag :fg, "Final Gravity (FG)", class:"text-xl text-center self-cente" %>
+      <%= label_tag :fg, "Final Gravity (FG)", class:"text-xl text-center self-center" %>
       <%= number_field :fg, nil, step: 0.001, required: true, data: {abv_target: "fg"},
                        class:"w-52 self-center rounded-md border-gray-300 focus:border-gray-600 focus:ring-gray-500 p-2" %>
     </div>
@@ -21,7 +21,7 @@
                                        text-center me-2 mb-2 transition-all ease-in-out",
                                   data: {abv_target:"abvCalculate"} %>
     </div>
-    <div class="flex flex-row items-center justify-center space-x-2">
+    <div class="absolute left-1/2 transform -translate-x-1/2 flex flex-row items-center justify-center space-x-2">
       <p class="hidden text-gray-600 font-semibold text-3xl" data-abv-target="abv_title"></p>
       <p class="hidden text-gray-600 font-semibold text-3xl" data-abv-target="abv_result"></p>
     </div>
