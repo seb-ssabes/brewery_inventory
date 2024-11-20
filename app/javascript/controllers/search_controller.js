@@ -3,12 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["suggestions", "input"]
 
-  connect() {
-    this.inputTarget.addEventListener('keyup', this.searchInput.bind(this));
-    this.suggestionsTarget.addEventListener('click', this.selectSuggestion.bind(this))
-    console.log("Search controller connected")
-  }
-
   searchInput() {
     this.clearDetails();
 

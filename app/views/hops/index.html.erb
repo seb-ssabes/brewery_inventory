@@ -5,14 +5,17 @@
 <form class="search-form items w-full max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
       data-controller="search">
   <input type="text" id="hopSearch" placeholder="Hop name"
-         data-search-action="input->search#searchInput"
+         data-action="input->search#searchInput"
+         data-action="keyup->search#searchInput"
          data-search-target="input"
          autocomplete="off"
          class="w-full px-4 mt-1 py-2 border border-gray-300 rounded-md focus:ring-3
           focus:ring-gray-500 focus:border-gray-600 transition duration-200" />
   <ul class="suggestions hidden bg-white mt-2 rounded-md shadow-sm text-lg
              overflow-hidden transition-opacity ease-in-out"
-      data-search-target="suggestions" id="hopSuggestions">
+      data-action="click->search#selectSuggestion"
+      data-search-target="suggestions"
+      id="hopSuggestions">
   </ul>
 </form>
 
