@@ -13,7 +13,7 @@ module Hops
 
         query = params[:query].to_s.downcase
 
-        matched_hops = @hops.select { |hop| hop[:name].to_s.strip.downcase.starts_with?(query) }
+        matched_hops = @hops.select { |hop| hop[:name].to_s.strip.downcase.include?(query) }
 
         hops_data = matched_hops.map do |hop|
           { name: hop[:name] }
