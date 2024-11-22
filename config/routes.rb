@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  namespace :calculators do
-    get '/', to: 'calculators#index', as: :index
-    get 'abv', to: 'calculators#abv', as: :abv
-    get 'density_correction', to: 'calculators#density_correction', as: :density_correction
-    post 'calculate_abv', to: 'calculators#calculate_abv', as: :calculate_abv
-    post 'calculate_density_correction', to: 'calculators#calculate_density_correction', as: :calculate_density_correction
-  end
+  get 'calculators/index', to: 'calculators#index'
+  get 'calculators/abv', to: 'calculators#abv'
+  get 'calculators/density_correction', to: 'calculators#density_correction'
+  post 'calculators/calculate_abv', to: 'calculators#calculate_abv'
+  post 'calculators/calculate_density_correction', to: 'calculators#calculate_density_correction'
 
-  namespace :hops do
-    get 'search', to: 'hops#index'
-    get 'api_search', to: 'hops#api_search'
-    get 'api_detail', to: 'hops#api_detail'
-  end
+
+  get 'hops/search', to: 'hops#index'
+  get 'hops/api_search', to: 'hops#api_search'
+  get 'hops/api_detail', to: 'hops#api_detail'
+
 
   resources :categories, only: [:index, :show] do
     resources :items

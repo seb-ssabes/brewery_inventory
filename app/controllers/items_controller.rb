@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @category = @item.category
-    @substitutes = Hop.find_substitutes(@item.name)
+    @substitutes = Hop.find_substitutes_and_type(@item.name)
   end
 
   def update
