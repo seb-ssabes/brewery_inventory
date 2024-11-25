@@ -24,24 +24,17 @@ Overall, the Home Brewing App is tailored to my brother's brewing needs, ensurin
 
 The app is hosted by [**Render.com**](https://render.com/).
 
-<p float="left">
-  <img src="/bc2db380-61b1-4fc0-8a84-b2731c37fed6.png" width="100" />
-  <img src="/github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac.png" width="100" /> 
-  <img src="/github.com/user-attachments/assets/edf2ea2d-3890-45eb-a91c-0a537320e75e.png" width="100" />
-</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
 
-# ![hops index toggle](https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6)
+  <img src="https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6" alt="hops index toggle" width="30%" />
+  <img src="https://github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac" alt="malts index toggle" width="30%" />
+  <img src="https://github.com/user-attachments/assets/edf2ea2d-3890-45eb-a91c-0a537320e75e" alt="hops search" width="30%" />
+  
+  <img src="https://github.com/user-attachments/assets/0207e118-2bb2-4a94-8c4d-5bc3178e04b4" alt="Item Edit" width="30%" />
+  <img src="https://github.com/user-attachments/assets/20cfb121-431b-43e0-bd92-31242774d93d" alt="Item New" width="30%" />
+  <img src="https://github.com/user-attachments/assets/75cbfaea-8344-4e3c-8bc3-8adef754cd62" alt="Delete Item" width="30%" />
 
-# ![malts index toggle](https://github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac)
+  <img src="https://github.com/user-attachments/assets/2015b201-9f0b-4cb8-8c88-d0779983ff41" alt="abv" width="30%" />
+  <img src="https://github.com/user-attachments/assets/a57b45bc-6361-4fdf-9767-137d9fd45528" alt="density" width="30%" />
 
-# ![hops search](https://github.com/user-attachments/assets/edf2ea2d-3890-45eb-a91c-0a537320e75e)
-
-# ![Item Edit](https://github.com/user-attachments/assets/0207e118-2bb2-4a94-8c4d-5bc3178e04b4)
-
-# ![Item New](https://github.com/user-attachments/assets/20cfb121-431b-43e0-bd92-31242774d93d)
-
-# ![Delete Item](https://github.com/user-attachments/assets/75cbfaea-8344-4e3c-8bc3-8adef754cd62)
-
-# ![abv](https://github.com/user-attachments/assets/2015b201-9f0b-4cb8-8c88-d0779983ff41)
-
-# ![density](https://github.com/user-attachments/assets/a57b45bc-6361-4fdf-9767-137d9fd45528)
+</div>
