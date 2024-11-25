@@ -26,15 +26,15 @@ The app is hosted by [**Render.com**](https://render.com/).
 
 <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;">
 
-  <img src="https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6" alt="hops index toggle" width="60%" />
-  <img src="https://github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac" alt="malts index toggle" width="60%" />
-  <img src="https://github.com/user-attachments/assets/edf2ea2d-3890-45eb-a91c-0a537320e75e" alt="hops search" width="60%" />
+  <img src="https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6" alt="hops index toggle" width="50%" />
+  <img src="https://github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac" alt="malts index toggle" width="50%" />
+  <img src="https://github.com/user-attachments/assets/edf2ea2d-3890-45eb-a91c-0a537320e75e" alt="hops search" width="50%" />
   
-  <img src="https://github.com/user-attachments/assets/0207e118-2bb2-4a94-8c4d-5bc3178e04b4" alt="Item Edit" width="60%" />
-  <img src="https://github.com/user-attachments/assets/20cfb121-431b-43e0-bd92-31242774d93d" alt="Item New" width="60%" />
-  <img src="https://github.com/user-attachments/assets/75cbfaea-8344-4e3c-8bc3-8adef754cd62" alt="Delete Item" width="60%" />
+  <img src="https://github.com/user-attachments/assets/0207e118-2bb2-4a94-8c4d-5bc3178e04b4" alt="Item Edit" width="50%" />
+  <img src="https://github.com/user-attachments/assets/20cfb121-431b-43e0-bd92-31242774d93d" alt="Item New" width="50%" />
+  <img src="https://github.com/user-attachments/assets/75cbfaea-8344-4e3c-8bc3-8adef754cd62" alt="Delete Item" width="50%" />
 
-  <img src="https://github.com/user-attachments/assets/2015b201-9f0b-4cb8-8c88-d0779983ff41" alt="abv" width="60%" />
-  <img src="https://github.com/user-attachments/assets/a57b45bc-6361-4fdf-9767-137d9fd45528" alt="density" width="60%" />
+  <img src="https://github.com/user-attachments/assets/2015b201-9f0b-4cb8-8c88-d0779983ff41" alt="abv" width="50%" />
+  <img src="https://github.com/user-attachments/assets/a57b45bc-6361-4fdf-9767-137d9fd45528" alt="density" width="50%" />
 
 </div>
