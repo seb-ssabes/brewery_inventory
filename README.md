@@ -22,7 +22,7 @@ He can also **sort items** based on quantity or origin with the toggle button.
 
 Overall, the Home Brewing App is tailored to my brother's brewing needs, ensuring simplicity and functionality while keeping it adaptable for future updates.
 
-The app is hosted by [**Render.com**](https://render.com/)
+The app is hosted by [**Render.com**](https://render.com/).
 
 # ![hops index toggle](https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6)
 
