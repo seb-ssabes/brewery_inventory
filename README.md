@@ -24,7 +24,7 @@ Overall, the Home Brewing App is tailored to my brother's brewing needs, ensurin
 
 The app is hosted by [**Render.com**](https://render.com/).
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+<div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;">
 
   <img src="https://github.com/user-attachments/assets/bc2db380-61b1-4fc0-8a84-b2731c37fed6" alt="hops index toggle" width="60%" />
   <img src="https://github.com/user-attachments/assets/962d0449-b634-4239-bec7-a1ea9e016bac" alt="malts index toggle" width="60%" />
