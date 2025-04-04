@@ -4,8 +4,20 @@ RSpec.describe Category do
   describe "associations" do
     it "has many items" do
       category = Category.create!(name: "Barley")
-      item1 = category.items.create!(name: "Wheat1", quantity: 30, price: 2000, origin: "Germany", alpha: 7.5)
-      item2 = category.items.create!(name: "Wheat2", quantity: 40, price: 3000, origin: "Australia", alpha: 9.5)
+
+      item1 = category.items.create!(
+        name: "Barley1",
+        quantity: 30,
+        price: 2000,
+        origin: "Germany",
+      )
+      item2 = category.items.create!(
+        name: "Barley2",
+        quantity: 40,
+        price: 3000,
+        origin: "Australia",
+      )
+
       expect(category.items).to include(item1, item2)
     end
 
