@@ -9,13 +9,13 @@ RSpec.describe Category do
         name: "Barley1",
         quantity: 30,
         price: 2000,
-        origin: "Germany",
+        origin: "Germany"
       )
       item2 = category.items.create!(
         name: "Barley2",
         quantity: 40,
         price: 3000,
-        origin: "Australia",
+        origin: "Australia"
       )
 
       expect(category.items).to include(item1, item2)
@@ -23,7 +23,13 @@ RSpec.describe Category do
 
     it "destroys associated items when deleted" do
       category = Category.create!(name: "Malts")
-      item = category.items.create!(name: "Malt1", quantity: 50, price: 5000, origin: "Australia", alpha: 8.5)
+      
+      item = category.items.create!(
+        name: "Malt1",
+        quantity: 50,
+        price: 5000,
+        origin: "Australia")
+
       expect { category.destroy }.to change {Item.count}.by(-1)
     end
   end
