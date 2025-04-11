@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'csv'
 
 RSpec.describe Hop do
   describe "self.load_hops_data" do

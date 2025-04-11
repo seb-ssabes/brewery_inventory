@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category do
   describe "associations" do
-    it "has many items" do
+    it "has many Items" do
       category = Category.create!(name: "Barley")
 
       item1 = category.items.create!(
@@ -23,7 +23,7 @@ RSpec.describe Category do
 
     it "destroys associated items when deleted" do
       category = Category.create!(name: "Malts")
-      
+
       item = category.items.create!(
         name: "Malt1",
         quantity: 50,
