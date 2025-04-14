@@ -28,15 +28,15 @@ class Item < ApplicationRecord
   private
 
   def hop_category?
-    category&.name == "Hops"
+    category.name == "Hops"
   end
 
   def malt_category?
-    category&.name == "Malts"
+    category.name == "Malts"
   end
 
   def yeast_category?
-    category&.name == "Yeasts"
+    category.name == "Yeasts"
   end
 
   def must_have_changes
